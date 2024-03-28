@@ -16,583 +16,546 @@
   {% endblock css %}
 
 
-  <!--Kontaktbuttons Beginn-->
-  
-  {% block kontaktbuttons %}
-  <a href="{% url 'kontakt' %}">
-    <button type="button">
-      <div class="hidden md:block fixed z-50 bottom-12 right-8 bg-blue-900 rounded-full shadow-2xl p-3">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
-          <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/>
-          <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/>
-        </svg>
-      </div>
-    </button>
-  </a>
-  <a href="tel:+491705977862">
-    <button>
-      <div class="hidden md:block fixed z-50 bottom-28 right-8 bg-blue-900 rounded-full shadow-2xl p-3">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
-          <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd"/>
-        </svg>
-      </div>
-    </button>
-  </a>
-  {% endblock kontaktbuttons %}
-
-  <!--Kontaktbuttons Ende-->
-
-
   <!--Templates Beginn-->
-  {% block Templates %}
-  <section class="bg-white mb-20">
-    <div class="flex flex-col items-center justify-center px-4 pt-6 mx-auto sm:max-w-xl md:max-w-full lg:pt-6 md:px-0">
-      <div class="flex flex-col items-center max-w-2xl md:px-8">
-        <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-          <div class="text-center"> 
-            <h1 class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full ">
-              {{heroText.header}}
-            </h1>
+  {% block Hero %}
+  <div class="relative pb-[110px] pt-[150px] lg:pt-[170px]">
+    <div class="container mx-auto px-2 md:px-0">
+      <div class="flex flex-wrap items-center">
+        <div class="w-full px-4 lg:w-1/2">
+          <div class="mb-12 lg:mb-0">
+            <h2 class="mb-5 text-3xl font-bold leading-[1.208] text-black lg:text-[38px] xl:text-[40px]">
+              Autoglas-Service <br>  <span class="text-[#40904d]">HD-GLAS</span>
+            </h2>
+            <p class="mb-8 max-w-[485px] text-base md:text-lg text-gray-500">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              at egestas tortor. Morbi sed odio id purus pellentesque iaculis
+              nulla facilisi.
+            </p>
+
+              <button class="hover:bg-green-950 mb-3 h-[52px] rounded-md bg-[#40904d] px-7 text-base font-medium text-white transition">
+                Kontakt
+              </button>
           </div>
-          <h2 class="max-w-lg mb-6 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto text-center">
-            {{heroText.title}}
-          </h2>
-          <p class="text-base leading-7 text-gray-600 md:text-lg">
-            {{heroText.description}}
-          </p>
+        </div>
+
+        <div class="w-full px-4 lg:w-1/2">
+          <div class="flex flex-wrap">
+            <div class="w-1/2 px-2 sm:px-4">
+              <div class="mb-4 h-[256px] sm:mb-8 sm:h-[442px] lg:h-[332px] xl:h-[442px]">
+                <img src="{% static 'images/Firmengebaeude.jpg' %}" alt="hero image" class="h-full w-full object-cover object-center">
+              </div>
+            </div>
+            <div class="w-1/2 px-2 sm:px-4">
+              <div class="mb-4 h-[120px] sm:mb-8 sm:h-[205px] lg:h-[150px] xl:h-[205px]">
+                <img src="{% static 'images/Steinschlag.png' %}" alt="hero image" class="h-full w-full object-cover object-center">
+              </div>
+              <div class="mb-4 h-[120px] sm:mb-8 sm:h-[205px] lg:h-[150px] xl:h-[205px]">
+                <img src="{% static 'images/Montage.jpg' %}" alt="hero image" class="h-full w-full object-cover object-center">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <!--Cardslider Beginn-->
-        <figure class="icon-cards mt-3">
-          <div class="icon-cards__content">
-            {% if heroImages %}
-              {% for img in heroImages %}
-              <div class="icon-cards__item d-flex align-items-center justify-content-center">
-                <img src="{{img.upload.url}}" alt="{{img.title}}"/>
-              </div>
-              {% endfor %}
-            {% else %}
-            <div class="icon-cards__item d-flex align-items-center justify-content-center">
-              <img src="{% static 'images/Template1.png' %}" alt="Template Design"/>
-            </div>
-            <div class="icon-cards__item d-flex align-items-center justify-content-center">
-              <img src="{% static 'images/Template2.png' %}" alt="Template Design"/>
-            </div>
-            <div class="icon-cards__item d-flex align-items-center justify-content-center">
-              <img src="{% static 'images/Template3.png' %}" alt="Template Design"/>
-            </div>
-            {% endif %}
-          </div>
-        </figure>
-        <div class="items-center justify-center mx-auto bg-blue-900 rounded-2xl mt-12">
-          <a href="{% url 'designtemplates:designtemplates' %}" aria-label="Webdesign-Vorlagen" title="Webdesign-Vorlagen"
-        class="inline-flex items-center justify-center h-12 px-6 font-medium  text-white transition duration-200 rounded">
-        Webdesign-Vorlagen
-      </a>
-        </div>
-      <!--Cardslider End-->
     </div>
-  </section>
-  {% endblock Templates %}
+  </div>
+  {% endblock Hero %}
   <!--Templates End-->
 
 
-  <!--Wellen Beginn-->
-  {% block Wellen %}
-  <section class="bg-white">
-    <div>
-      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
-        </defs>
-        <g class="parallax">
-          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(219,234,254,0.7)"/>
-          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(219,234,254,0.5)"/>
-          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(219,234,254,0.3)"/>
-          <use xlink:href="#gentle-wave" x="48" y="7" fill="#dbeafe" />
-        </g>
-      </svg>
+
+
+  <!-- ====== Brands Section Start -->
+  <section class="bg-gray-100 py-20">
+    <div class="container mx-auto">
+      <div class="flex flex-wrap items-center">
+        <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
+          <div>
+            <h2 class="text-3xl font-bold text-black sm:text-4xl lg:text-3xl xl:text-[33px] 2xl:text-4xl">
+              Professionelle Autoglasreparatur für eine Vielzahl von Fahrzeugen
+            </h2>
+          </div>
+        </div>
+        <div class="w-full px-4 lg:w-1/2 xl:w-7/12">
+          <div class="mt-12 flex flex-wrap items-center justify-center lg:mt-0 xl:justify-end">
+            <a href="javascript:void(0)" class="mx-4 flex min-w-[150px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+              <img src="images/car.svg" alt="image" class="w-full h-24 ">
+            </a>
+            <a href="javascript:void(0)" class="mx-4 flex min-w-[150px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+              <img src="images/tractor.svg" alt="image" class="w-full h-24">
+            </a>
+            <a href="javascript:void(0)" class="mx-4 flex min-w-[150px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+              <img src="images/truck.svg" alt="image" class="w-full h-24">
+            </a>
+            <a href="javascript:void(0)" class="mx-4 flex min-w-[150px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+              <img src="images/camper.svg" alt="image" class="w-full h-24">
+            </a>
+            <a href="javascript:void(0)" class="mx-4 flex min-w-[150px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+              <img src="images/bus.svg" alt="image" class="w-full h-24">
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-  {% endblock Wellen %}
-  <!--Wellen End-->
+  <!-- ====== Brands Section End -->
 
-
-  <!--Background-->
-  <div class="bg-blue-100">
-
-    <!--ResponsiveDesign Beginn -->
-    {% block ResponsiveDesign %}
-    <section class="scroll-my-4 -mb-0 xs:-mb-48 lg:-mb-0" id="Responsive">
-      <div class="flex flex-col justify-between max-w-xl px-4 mx-auto lg:pt-16 lg:flex-row md:px-8 lg:max-w-screen-xl">
-        <div class="pt-14 mb-5 lg:mb-0 lg:pt-32 lg:max-w-lg lg:pr-1 xl:ml-10">
-          <div class="w-6xl mb-5">
-            <div>
-              <h3 class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-                {{responsiveText.header}}
-              </h3>
-            </div>
-            <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-              {{responsiveText.title}}
+  <!-- ====== Services Section Start -->
+  <section class="pt-20 lg:pt-[120px]">
+    <div class="container mx-auto">
+      <div class="flex flex-wrap">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
+            <span class="mb-2 block text-lg font-semibold text-[#40904d]">
+              Core Features
+            </span>
+            <h2 class="mb-3 text-3xl font-bold leading-[1.2] text-black sm:text-4xl md:text-[40px]">
+              Our Awesome Features
             </h2>
-            <p class="text-base leading-7 text-gray-600 md:text-lg ">
-              {{responsiveText.description}}
+            <p class="text-base md:text-lg text-gray-500">
+              There are many variations of passages of Lorem Ipsum available
+              but the majority have suffered alteration in some form.
             </p>
-            <br/>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap">
+        <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+          <div class="relative mx-auto mb-10 max-w-[370px] text-center">
+            <div class="absolute -right-4 top-12 hidden h-1 w-16 border-t-2 border-dashed border-[#40904d] xl:block 2xl:w-[75px]"></div>
+            <div class="relative mx-auto mb-8 flex h-[100px] w-[100px] items-center justify-center rounded-[20px] bg-[#40904d] text-white">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-current">
+                <g clip-path="url(#clip0_1697_2534)">
+                  <path d="M31.8312 24.2688H12.1687C11.6875 24.2688 11.2062 24.475 10.9312 24.8875C10.6562 25.3 10.5187 25.7813 10.6562 26.2625C12.1 31.35 16.775 34.925 22 34.925C27.3625 34.925 31.9 31.4875 33.3437 26.2625C33.4812 25.7813 33.4125 25.3 33.0687 24.8875C32.7937 24.475 32.3125 24.2688 31.8312 24.2688ZM22 31.7625C18.8375 31.7625 16.0187 30.0438 14.4375 27.3625H29.5625C28.05 30.0438 25.2312 31.7625 22 31.7625Z" fill="white"></path>
+                  <path d="M22 0.550049C10.175 0.550049 0.549988 10.175 0.549988 22C0.549988 33.825 10.175 43.5188 22.0687 43.5188C33.9625 43.5188 43.5875 33.8938 43.5875 22C43.5875 10.1063 33.825 0.550049 22 0.550049ZM22 40.425C11.825 40.425 3.57499 32.175 3.57499 22C3.57499 11.825 11.8937 3.6438 22 3.6438C32.1062 3.6438 40.425 11.8938 40.425 22.0688C40.425 32.2438 32.175 40.425 22 40.425Z" fill="white"></path>
+                  <path d="M13.75 18.425C15.2688 18.425 16.5 17.1938 16.5 15.675C16.5 14.1563 15.2688 12.925 13.75 12.925C12.2312 12.925 11 14.1563 11 15.675C11 17.1938 12.2312 18.425 13.75 18.425Z" fill="white"></path>
+                  <path d="M30.25 18.425C31.7688 18.425 33 17.1938 33 15.675C33 14.1563 31.7688 12.925 30.25 12.925C28.7312 12.925 27.5 14.1563 27.5 15.675C27.5 17.1938 28.7312 18.425 30.25 18.425Z" fill="white"></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1697_2534">
+                    <rect width="44" height="44" fill="white"></rect>
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <h3 class="mb-5 text-2xl font-semibold text-black">
+              Easy To Use
+            </h3>
+            <p class="text-base text-gray-500">
+              Lorem ipsum dolor sit amet sitim consectetur elit. Vestibulum
+              tincidunt rutrum.
+            </p>
+          </div>
+        </div>
+        <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+          <div class="relative mx-auto mb-10 max-w-[370px] text-center">
+            <div class="absolute -left-4 top-12 hidden h-1 w-16 border-t-2 border-dashed border-[#40904d] xl:block 2xl:w-[75px]"></div>
+            <div class="absolute right-[-14px] top-12 hidden h-1 w-16 border-t-2 border-dashed border-[#40904d] xl:block 2xl:w-[75px]"></div>
+            <div class="mx-auto mb-8 flex h-[100px] w-[100px] items-center justify-center rounded-[20px] bg-[#40904d] text-white">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-current">
+                <path d="M37.7437 6.46255H37.5375V5.50005C37.5375 3.16255 35.6125 1.23755 33.275 1.23755H14.2312C11.8937 1.23755 9.96874 3.16255 9.96874 5.50005V6.46255H7.56249C5.98124 6.46255 4.67499 7.7688 4.67499 9.35005V18.9751C4.67499 20.5563 5.98124 21.8626 7.56249 21.8626H25.7125V24.0626C23.7187 24.4063 22.2062 26.1938 22.2062 28.2563V38.5001C22.2062 40.8376 24.1312 42.7626 26.4687 42.7626H27.9812C30.3187 42.7626 32.2437 40.8376 32.2437 38.5001V28.2563C32.2437 26.1938 30.7312 24.4063 28.7375 24.0626V21.5876C28.7375 20.0063 27.4312 18.7001 25.85 18.7001H7.76874V9.5563H9.89999V10.5188C9.89999 12.8563 11.825 14.7813 14.1625 14.7813H33.1375C35.475 14.7813 37.4 12.8563 37.4 10.5188V9.5563H37.6062C38.4312 9.5563 39.1187 8.8688 39.1187 8.0438C39.1187 7.2188 38.6375 6.46255 37.7437 6.46255ZM29.2187 28.2563V38.5001C29.2187 39.1876 28.6687 39.7376 27.9812 39.7376H26.4687C25.7812 39.7376 25.2312 39.1876 25.2312 38.5001V28.2563C25.2312 27.5688 25.7812 27.0188 26.4687 27.0188H27.9812C28.6687 27.0188 29.2187 27.5688 29.2187 28.2563ZM34.4437 10.5188C34.4437 11.2063 33.8937 11.7563 33.2062 11.7563H14.2312C13.5437 11.7563 12.9937 11.2063 12.9937 10.5188V5.50005C12.9937 4.81255 13.5437 4.26255 14.2312 4.26255H33.2062C33.8937 4.26255 34.4437 4.81255 34.4437 5.50005V10.5188V10.5188Z" fill="white"></path>
+              </svg>
+            </div>
+            <h3 class="mb-5 text-2xl font-semibold text-black">
+              Awesome Design
+            </h3>
+            <p class="text-base text-gray-500">
+              Lorem ipsum dolor sit amet sitim consectetur elit. Vestibulum
+              tincidunt rutrum.
+            </p>
+          </div>
+        </div>
+        <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+          <div class="relative mx-auto mb-10 max-w-[370px] text-center">
+            <div class="absolute -left-4 top-12 hidden h-1 w-16 border-t-2 border-dashed border-[#40904d] xl:block 2xl:w-[75px]"></div>
+            <div class="absolute right-[-14px] top-12 hidden h-1 w-16 border-t-2 border-dashed border-[#40904d] xl:block 2xl:w-[75px]"></div>
+            <div class="mx-auto mb-8 flex h-[100px] w-[100px] items-center justify-center rounded-[20px] bg-[#40904d] text-white">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-current">
+                <path d="M14.9188 2.3374H6.1875C3.85 2.3374 1.925 4.2624 1.925 6.5999V15.3312C1.925 17.6687 3.85 19.5937 6.1875 19.5937H14.9188C17.2563 19.5937 19.1813 17.6687 19.1813 15.3312V6.66865C19.25 4.2624 17.325 2.3374 14.9188 2.3374ZM16.1563 15.3999C16.1563 16.0874 15.6063 16.6374 14.9188 16.6374H6.1875C5.5 16.6374 4.95 16.0874 4.95 15.3999V6.66865C4.95 5.98115 5.5 5.43115 6.1875 5.43115H14.9188C15.6063 5.43115 16.1563 5.98115 16.1563 6.66865V15.3999Z" fill="white"></path>
+                <path d="M37.8125 2.3374H29.0813C26.7438 2.3374 24.8188 4.2624 24.8188 6.5999V15.3312C24.8188 17.6687 26.7438 19.5937 29.0813 19.5937H37.8125C40.15 19.5937 42.075 17.6687 42.075 15.3312V6.66865C42.075 4.2624 40.15 2.3374 37.8125 2.3374ZM39.05 15.3999C39.05 16.0874 38.5 16.6374 37.8125 16.6374H29.0813C28.3938 16.6374 27.8438 16.0874 27.8438 15.3999V6.66865C27.8438 5.98115 28.3938 5.43115 29.0813 5.43115H37.8125C38.5 5.43115 39.05 5.98115 39.05 6.66865V15.3999Z" fill="white"></path>
+                <path d="M14.9188 24.2686H6.1875C3.85 24.2686 1.925 26.1936 1.925 28.5311V37.2623C1.925 39.5998 3.85 41.5248 6.1875 41.5248H14.9188C17.2563 41.5248 19.1813 39.5998 19.1813 37.2623V28.5998C19.25 26.1936 17.325 24.2686 14.9188 24.2686ZM16.1563 37.3311C16.1563 38.0186 15.6063 38.5686 14.9188 38.5686H6.1875C5.5 38.5686 4.95 38.0186 4.95 37.3311V28.5998C4.95 27.9123 5.5 27.3623 6.1875 27.3623H14.9188C15.6063 27.3623 16.1563 27.9123 16.1563 28.5998V37.3311Z" fill="white"></path>
+                <path d="M37.8125 24.2686H29.0813C26.7438 24.2686 24.8188 26.1936 24.8188 28.5311V37.2623C24.8188 39.5998 26.7438 41.5248 29.0813 41.5248H37.8125C40.15 41.5248 42.075 39.5998 42.075 37.2623V28.5998C42.075 26.1936 40.15 24.2686 37.8125 24.2686ZM39.05 37.3311C39.05 38.0186 38.5 38.5686 37.8125 38.5686H29.0813C28.3938 38.5686 27.8438 38.0186 27.8438 37.3311V28.5998C27.8438 27.9123 28.3938 27.3623 29.0813 27.3623H37.8125C38.5 27.3623 39.05 27.9123 39.05 28.5998V37.3311Z" fill="white"></path>
+              </svg>
+            </div>
+            <h3 class="mb-5 text-2xl font-semibold text-black">
+              Easy To Customize
+            </h3>
+            <p class="text-base text-gray-500">
+              Lorem ipsum dolor sit amet sitim consectetur elit. Vestibulum
+              tincidunt rutrum.
+            </p>
+          </div>
+        </div>
+        <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+          <div class="relative mx-auto mb-10 max-w-[370px] text-center">
+            <div class="absolute left-[-14px] top-12 hidden h-1 w-16 border-t-2 border-dashed border-[#40904d] xl:block 2xl:w-[75px]"></div>
+            <div class="mx-auto mb-8 flex h-[100px] w-[100px] items-center justify-center rounded-[20px] bg-[#40904d] text-white">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-current">
+                <path d="M36.4375 7.35627C32.1062 2.95627 26.0562 0.82502 19.9375 1.51252C10.3813 2.47502 2.81875 10.1063 1.7875 19.5938C1.375 23.9938 2.26875 28.2563 4.46875 31.9688L1.71875 39.1188C1.30625 40.0813 1.58125 41.25 2.40625 41.9375C2.8875 42.35 3.50625 42.625 4.125 42.625C4.5375 42.625 4.88125 42.5563 5.29375 42.35L11.55 39.1875C15.3312 41.4563 19.5937 42.4188 24.0625 42.0063C33.6875 41.1125 41.3875 33.4813 42.35 23.7875C42.9687 17.6688 40.8375 11.6875 36.4375 7.35627ZM39.2562 23.5125C38.4312 31.6938 31.9 38.1563 23.7187 38.9125C19.6625 39.325 15.8125 38.2938 12.4438 36.0938C12.1688 35.8875 11.8938 35.8188 11.6187 35.8188C11.4125 35.8188 11.1375 35.8875 10.9312 35.9563L5.0875 38.8438L7.63125 32.2438C7.8375 31.7625 7.76875 31.2813 7.49375 30.8688C5.3625 27.5688 4.46875 23.7188 4.88125 19.7313C5.70625 11.825 12.1688 5.43127 20.2125 4.60627C25.4375 4.05627 30.5937 5.84377 34.2375 9.55627C37.95 13.2 39.8062 18.2875 39.2562 23.5125Z" fill="white"></path>
+                <path d="M16.2937 16.4313H26.4687C27.2937 16.4313 28.05 15.7438 28.05 14.8501C28.05 13.9563 27.3625 13.2688 26.4687 13.2688H16.2937C15.4687 13.2688 14.7125 13.9563 14.7125 14.8501C14.7125 15.7438 15.4687 16.4313 16.2937 16.4313Z" fill="white"></path>
+                <path d="M30.525 20.4187H16.2937C15.4687 20.4187 14.7125 21.1062 14.7125 22C14.7125 22.8937 15.4 23.5125 16.2937 23.5125H30.525C31.35 23.5125 32.1062 22.825 32.1062 22C32.1062 21.175 31.35 20.4187 30.525 20.4187Z" fill="white"></path>
+                <path d="M23.4437 27.5688H16.2937C15.4687 27.5688 14.7125 28.2563 14.7125 29.1501C14.7125 30.0438 15.4 30.7313 16.2937 30.7313H23.375C24.2 30.7313 24.9562 30.0438 24.9562 29.1501C24.9562 28.2563 24.2687 27.5688 23.4437 27.5688Z" fill="white"></path>
+              </svg>
+            </div>
+            <h3 class="mb-5 text-2xl font-semibold text-black">
+              Any Time Support
+            </h3>
+            <p class="text-base text-gray-500">
+              Lorem ipsum dolor sit amet sitim consectetur elit. Vestibulum
+              tincidunt rutrum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ====== Services Section End -->
+
+  <!-- ====== About Section Start -->
+  <section class="overflow-hidden pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
+    <div class="container mx-auto">
+      <div class="flex flex-wrap items-center justify-between">
+        <div class="w-full px-4 lg:w-6/12">
+          <div class="relative mb-12 lg:mb-0">
+            <div class="mx-auto max-w-[430px]">
+              <img src="images/placeholder.png" alt="about image" class="w-full">
+            </div>
+          </div>
+        </div>
+        <div class="w-full px-4 lg:w-1/2 2xl:w-5/12">
+          <div class="mt-10 lg:mt-0">
+            <span class="mb-2 block text-lg font-bold text-gray-500 md:mb-4">
+              Was wir machen!
+            </span>
+            <h2 class="mb-11 text-3xl font-bold leading-tight text-black sm:text-4xl sm:leading-tight md:text-5xl lg:text-4xl lg:leading-tight xl:text-5xl">
+              We develop &amp; create awesome website .
+            </h2>
+
+            <div class="mb-8 flex">
+              <span class="w-full max-w-[45px] pr-4 text-2xl font-bold text-[#40904d]">
+                01
+              </span>
+              <div class="w-full">
+                <h3 class="mb-4 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl">
+                  Refreshing Design
+                </h3>
+                <p class="mb-9 text-base text-gray-500">
+                  Clean, refreshing and high-quality that gives positive
+                  vibes. Figma source file also provided so you can use to
+                  prototype, experiment, play or adjust.
+                </p>
+              </div>
+            </div>
+
             <div class="flex">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/>
-              </svg>
-              <label class="relative inline-flex items-center mb-5 mx-3 cursor-pointer">
-                <input type="checkbox" value="" class="sr-only peer" onclick="toggleResponsive()"/>
-                <div class="w-14 h-7 bg-blue-300 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-blue-900"></div>
-              </label>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/>
-              </svg>
+              <span class="w-full max-w-[45px] pr-4 text-2xl font-bold text-[#40904d]">
+                02
+              </span>
+              <div class="w-full">
+                <h3 class="mb-4 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl">
+                  Developer Friendly
+                </h3>
+                <p class="mb-9 text-base text-gray-500">
+                  Developer experience is our #1 priority, entire library is
+                  designed, coded, and organized in a way that saves hundreds
+                  of hours and increases productivity.
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
-        <!--Imageslider-->
-        <div class="container content-center px-1">
-          <!--Browser-->
-          <div class="container animate-fade-in-down xs:h-129 sm:h-130 md:h-131 relative" id="browser">
-            <img src="{% static 'images/MacBookPro16.png' %}" class="absolute xs:object-top lg:object-center h-full w-full object-contain z-10" alt="MacBookPro16 Bezel"/>
-            <span id="desktopSlider">
-              {% if responsiveDesktopImages %}
-                {% for image in responsiveDesktopImages %}
-                  {% if forloop.first %}
-                    <img src="{{image.upload.url}}" class="relative h-full w-full object-contain xs:object-top lg:object-center" title="{{image.title}}" alt="{{image.title}}"/>
-                  {% else %}
-                    <img src="{{image.upload.url}}" class="hidden relative h-full w-full object-contain xs:object-top lg:object-center" title="{{image.title}}" alt="{{image.title}}"/>
-                  {% endif %}
-                {% endfor %}
-              {% else %}
-                <img src="{% static 'images/MacBook-RSAutoglas1.png' %}" class="relative h-full w-full object-contain xs:object-top lg:object-center" alt="MacBookPro16 Bezel RS-Autoglas"/>
-                <img src="{% static 'images/MacBook-RSAutoglas2.png' %}" class="hidden relative h-full w-full object-contain xs:object-top lg:object-center" alt="MacBookPro16 Bezel RS-Autoglas"/>
-              {% endif %}
-            </span>
-          </div>
-          <!--Phone-->
-          <div class="hidden container animate-fade-in-down xs:h-129 sm:h-130 md:h-131 relative" id="phone">
-            <img src="{% static 'images/iPhone-Frame.png' %}" class="absolute h-full w-full object-contain z-10" alt="iPhone-Frame Bezel"/>
-            <span id="handySlider">
-              {% if responsiveHandyImages %}
-                {% for image in responsiveHandyImages %}
-                  {% if forloop.first %}
-                    <img src="{{image.upload.url}}" class="relative h-full w-full object-contain" title="{{image.title}}" alt="{{image.title}}"/>
-                  {% else %}
-                    <img src="{{image.upload.url}}" class="hidden relative h-full w-full object-contain" title="{{image.title}}" alt="{{image.title}}"/>
-                  {% endif %}
-                {% endfor %}
-              {% else %}
-              <img src="{% static 'images/iPhone-RSAutoglas.png' %}" class="relative h-full w-full object-contain" alt="iPhone-Frame Bezel RS-Autoglas"/>
-              <img src="{% static 'images/iPhone-RSAutoglas.png' %}" class="hidden relative h-full w-full object-contain" alt="iPhone-Frame Bezel RS-Autoglas"/>
-              {% endif %}
-              
-            </span>
           </div>
         </div>
       </div>
-    </section>
-    {% endblock ResponsiveDesign %}
-    <!--ResponsiveDesign End-->
+    </div>
+  </section>
+  <!-- ====== About Section End -->
 
-
-    <!--Referenzen Beginn
-    {% block Referenzen %}
-    <section class="bg-blue-100">
-      <br/><br/><br/><br/><br/>
-      <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div class="flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8">
-          <h2 class="max-w-lg mb-5 font-sans text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl sm:leading-none md:mb-6 group">
-            <span class="inline-block mb-1 sm:mb-4">
-              Referenzen<br class="hidden md:block" />
-              der Kunden
+  <!-- ====== Team Section Start -->
+  <section class="overflow-hidden bg-gray-100 pb-20 pt-20 lg:pb-[120px] lg:pt-[120px]">
+    <div class="container mx-auto">
+      <div class="flex flex-wrap">
+        <div class="w-full px-4">
+          <div class="mx-auto max-w-[510px] text-center">
+            <span class="mb-2 block text-lg font-semibold text-[#40904d]">
+              Our Team Members
             </span>
-            <div class="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100"></div>
-          </h2>
-          <p class="text-gray-700 lg:text-md lg:max-w-md">
-            Gerne können Sie sich ein Bild von unseren erfolgreichen Projekten
-            machen und diese als Refernez oder Inspiration für die eigene
-            Website nuten.
-          </p>
-        </div>
-      <div class="grid gap-6 row-gap-5 mb-8 lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2">
-        <a href="/" aria-label="View Item">
-          <div class="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="{% static 'images/RSAutoglas-Logo.png' %}" alt=""/>
-            <div class="absolute inset-0 px-6 py-4 transition-opacity duration-200 bg-blue-900 bg-opacity-75 opacity-0 hover:opacity-100">
-              <p class="mb-4 text-lg font-bold text-gray-100">RS-Autoglas</p>
-              <p class="text-sm tracking-wide text-gray-300">RS-Autoglas ist ein....</p>
-            </div>
-          </div>
-        </a>
-        <a href="/" aria-label="View Item">
-          <div class="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="" alt=""/>
-            <div class="absolute inset-0 px-6 py-4 transition-opacity duration-200 bg-blue-900 bg-opacity-75 opacity-0 hover:opacity-100">
-              <p class="mb-4 text-lg font-bold text-gray-100">Hier könnte Ihr Name stehen</p>
-              <p class="text-sm tracking-wide text-gray-300">....</p>
-            </div>
-          </div>
-        </a>
-        <a href="/" aria-label="View Item">
-          <div class="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="" alt=""/>
-            <div class="absolute inset-0 px-6 py-4 transition-opacity duration-200 bg-blue-900 bg-opacity-75 opacity-0 hover:opacity-100">
-              <p class="mb-4 text-lg font-bold text-gray-100">Hier könnte Ihr Name stehen</p>
-              <p class="text-sm tracking-wide text-gray-300">....</p>
-            </div>
-          </div>
-        </a>
-        <a href="/" aria-label="View Item">
-          <div class="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="" alt=""/>
-            <div class="absolute inset-0 px-6 py-4 transition-opacity duration-200 bg-blue-900 bg-opacity-75 opacity-0 hover:opacity-100">
-              <p class="mb-4 text-lg font-bold text-gray-100">Hier könnte Ihr Name stehen</p>
-              <p class="text-sm tracking-wide text-gray-300">....</p>
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </section>
-    {% endblock Referenzen %}
-    Referenzen End-->
-
-
-    <!--CMS Beginn-->
-    {% block CMSDetail %}
-    <section class="-scroll-my-14" id="Cms">
-      <div class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-        <div class="relative isolate overflow-visible px-6 pt-16 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0 lg:mt-20">
-          <!-- Foto-PC -->
-          <div class="relative lg:mt-16 lg:mb-28 h-auto m-8 -ml-24 w-2/3 overflow-hidden shadow-2xl rounded-md hidden lg:block">
-            <img class="absolute left-0 top-0 w-[45rem] max-w-none" title="{% if cmsImage %}{{cmsImage.title}}{% endif %}" src="{% if cmsImage %}{{cmsImage.file.url}}{% else %}{% static 'images/cms-screen.png' %}{% endif %}" alt="{% if cmsImage %}{{cmsImage.title}}{% endif %}">
-          </div>
-          <div class="mx-auto max-w-[30rem] lg:mx-0 lg:flex-auto lg:py-16 lg:text-left">
-            <h3 class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-             {{cmsText.header}}
-            </h3>
-            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">{{cmsText.title}}</h2>
-            <p class="mt-6 text-base leading-7 md:text-lg text-gray-600">
-              {{cmsText.description}}
+            <h2 class="mb-3 text-3xl font-bold leading-[1.2] text-black sm:text-4xl md:text-[40px]">
+              Our Creative Team
+            </h2>
+            <p class="text-base md:text-lg text-gray-500">
+              There are many variations of passages of Lorem Ipsum available
+              but the majority have suffered alteration in some form.
             </p>
-            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-              <a href="{% url 'home' %}#Preise" class="rounded-md bg-blue-300 text-white px-3.5 py-2.5 text-sm font-semibold shadow-sm">{{cmsText.buttonText}}</a>
-              <a href="#" class="text-sm font-semibold leading-6">Erfahre mehr <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="relative flex justify-center">
+        <div class="relative w-full pb-16 md:w-11/12 lg:w-10/12 xl:w-8/12 xl:pb-0">
+          <div class="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[368px] sm:max-w-[508px] md:max-w-[630px] lg:max-w-[738px] 2xl:max-w-[910px]" x-ref="carousel">
+            <div class="mx-auto h-full min-w-[300px] xs:min-w-[368px] sm:min-w-[508px] sm:p-6 md:min-w-[630px] lg:min-w-[738px] 2xl:min-w-[910px]">
+              <div class="w-full md:flex">
+                <div class="relative mb-12 w-full max-w-[310px] md:mb-0 md:mr-12 md:max-w-[250px] lg:mr-14 lg:max-w-[280px] xl:max-w-[310px] 2xl:mr-16">
+                  <img src="images/Andreas2.jpg" alt="image" class="w-full">
+                  <span class="absolute -left-6 -top-6 z-[-1] hidden sm:block">
+                    <svg width="77" height="77" viewBox="0 0 77 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="1.66343" cy="74.5221" r="1.66343" transform="rotate(-90 1.66343 74.5221)" fill="#3758F9"></circle>
+                      <circle cx="1.66343" cy="30.9401" r="1.66343" transform="rotate(-90 1.66343 30.9401)" fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="74.5221" r="1.66343" transform="rotate(-90 16.3016 74.5221)" fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="30.9401" r="1.66343" transform="rotate(-90 16.3016 30.9401)" fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="74.5221" r="1.66343" transform="rotate(-90 30.9398 74.5221)" fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="30.9401" r="1.66343" transform="rotate(-90 30.9398 30.9401)" fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="74.5221" r="1.66343" transform="rotate(-90 45.578 74.5221)" fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="30.9401" r="1.66343" transform="rotate(-90 45.578 30.9401)" fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="74.5216" r="1.66343" transform="rotate(-90 60.2162 74.5216)" fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="74.5216" r="1.66343" transform="rotate(-90 74.6634 74.5216)" fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="30.9398" r="1.66343" transform="rotate(-90 60.2162 30.9398)" fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="30.9398" r="1.66343" transform="rotate(-90 74.6634 30.9398)" fill="#3758F9"></circle>
+                      <circle cx="1.66343" cy="59.8839" r="1.66343" transform="rotate(-90 1.66343 59.8839)" fill="#3758F9"></circle>
+                      <circle cx="1.66343" cy="16.3017" r="1.66343" transform="rotate(-90 1.66343 16.3017)" fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="59.8839" r="1.66343" transform="rotate(-90 16.3016 59.8839)" fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="16.3017" r="1.66343" transform="rotate(-90 16.3016 16.3017)" fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="59.8839" r="1.66343" transform="rotate(-90 30.9398 59.8839)" fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="16.3017" r="1.66343" transform="rotate(-90 30.9398 16.3017)" fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="59.8839" r="1.66343" transform="rotate(-90 45.578 59.8839)" fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="16.3017" r="1.66343" transform="rotate(-90 45.578 16.3017)" fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="59.8839" r="1.66343" transform="rotate(-90 60.2162 59.8839)" fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="59.8839" r="1.66343" transform="rotate(-90 74.6634 59.8839)" fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="16.3017" r="1.66343" transform="rotate(-90 60.2162 16.3017)" fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="16.3017" r="1.66343" transform="rotate(-90 74.6634 16.3017)" fill="#3758F9"></circle>
+                      <circle cx="1.66343" cy="45.2455" r="1.66343" transform="rotate(-90 1.66343 45.2455)" fill="#3758F9"></circle>
+                      <circle cx="1.66343" cy="1.66347" r="1.66343" transform="rotate(-90 1.66343 1.66347)" fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="45.2455" r="1.66343" transform="rotate(-90 16.3016 45.2455)" fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="1.66347" r="1.66343" transform="rotate(-90 16.3016 1.66347)" fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="45.2455" r="1.66343" transform="rotate(-90 30.9398 45.2455)" fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="1.66347" r="1.66343" transform="rotate(-90 30.9398 1.66347)" fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="45.2455" r="1.66343" transform="rotate(-90 45.578 45.2455)" fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="1.66347" r="1.66343" transform="rotate(-90 45.578 1.66347)" fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="45.2457" r="1.66343" transform="rotate(-90 60.2162 45.2457)" fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="45.2457" r="1.66343" transform="rotate(-90 74.6634 45.2457)" fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="1.66371" r="1.66343" transform="rotate(-90 60.2162 1.66371)" fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="1.66371" r="1.66343" transform="rotate(-90 74.6634 1.66371)" fill="#3758F9"></circle>
+                    </svg>
+                  </span>
+                  <span class="absolute -bottom-6 -right-6 z-[-1]">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 32C3 15.9837 15.9837 3 32 3C48.0163 2.99999 61 15.9837 61 32C61 48.0163 48.0163 61 32 61C15.9837 61 3 48.0163 3 32Z" stroke="#13C296" stroke-width="6"></path>
+                    </svg>
+                  </span>
+                </div>
+                <div class="w-full">
+                  <div>
+                    <div class="mb-8 mt-5">
+                      <img src="images/Logooriginal.png" alt="hd-glas" class="">
+                    </div>
+                    <p class="mb-11 text-base font-normal italic leading-[1.81] text-gray-500 sm:text-[22px]">
+                      File storage made easy – including powerful features
+                      you won’t find anywhere else. Whether you’re.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <!-- Foto-Mobil -->
-            <div class="relative h-80 mt-16 overflow-hidden rounded-md block lg:hidden">
-              <img class="absolute  left-0 top-0 w-[50rem] max-w-none" title="{% if cmsImage %}{{cmsImage.title}}{% endif %}" src="{% if cmsImage %}{{cmsImage.file.url}}{% else %}{% static 'images/cms-screen.png' %}{% endif %}" alt="{% if cmsImage %}{{cmsImage.title}}{% endif %}">
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Call To Action Section Start -->
+  <section class="relative z-10 overflow-hidden bg-[#40904d] py-20 lg:py-[110px]">
+    <div class="container mx-auto">
+      <div class="relative overflow-hidden">
+        <div class="flex flex-wrap items-stretch">
+          <div class="w-full px-4">
+            <div class="mx-auto max-w-[570px] text-center">
+              <h2 class="mb-2.5 text-3xl font-bold leading-snug text-white md:text-[40px]">
+                <span class="pr-0.5">Wie können wir dir helfen?</span>
+                <span class="font-normal"> Schreibe eine Nachricht oder ruf uns an. </span>
+              </h2>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    {% endblock CMSDetail %}
-    <!--CMS End-->
+    </div>
 
+    <div>
+      <span class="absolute left-0 top-0">
+        <svg width="495" height="470" viewBox="0 0 495 470" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="55" cy="442" r="138" stroke="white" stroke-opacity="0.04" stroke-width="50"></circle>
+          <circle cx="446" r="39" stroke="white" stroke-opacity="0.04" stroke-width="20"></circle>
+          <path d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z" stroke="white" stroke-opacity="0.08" stroke-width="12"></path>
+        </svg>
+      </span>
+      <span class="absolute bottom-0 right-0">
+        <svg width="493" height="470" viewBox="0 0 493 470" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="462" cy="5" r="138" stroke="white" stroke-opacity="0.04" stroke-width="50"></circle>
+          <circle cx="49" cy="470" r="39" stroke="white" stroke-opacity="0.04" stroke-width="20"></circle>
+          <path d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z" stroke="white" stroke-opacity="0.06" stroke-width="13"></path>
+        </svg>
+      </span>
+    </div>
+  </section>
+  <!-- ====== Call To Action Section End -->
 
-    <!--Skills Beginn-->
-    {% block Skills %}
-    <section class="scroll-my-4" id="Skills">
-      <div class="pb-20 sm:pb-32 pt-20 sm:pt-20">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="mx-auto max-w-2xl lg:text-center">
-            <h3 class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-              KNOW-HOW
-             </h3>
-            <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Fähigkeiten & Kenntnisse</h2>
-            <p class="mt-6 text-base md:text-lg leading-8 text-gray-600">Als erfahrenes Webdesign-Team verfügen wir über ein breites Spektrum an Fähigkeiten und Kompetenzen, um Ihre digitalen Projekte zum Erfolg zu führen. Unser Skillset umfasst die neuesten Technologien, um funktionale und benutzerfreundliche Websites zu gestalten.</p>
-          </div>
-          <div class="mx-auto mt-12 max-w-2xl sm:mt-14 lg:mt-16 lg:max-w-5xl">
-            <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 md:max-w-none lg:grid-cols-3 lg:gap-y-16">
-              <div class="relative">
-                <dt class="text-base font-semibold leading-7 text-gray-900">Designkonzept</dt>
-                <dd class="mt-2 text-base leading-7 text-gray-600">Unser Designkonzept basiert auf der Idee, dass jede Website einzigartig sein sollte, um die Identität Ihres Unternehmens bestmöglich widerzuspiegeln. Wir setzen auf maßgeschneiderte Lösungen, die auf Ihre speziellen Anforderungen zugeschnitten sind. Unsere Designs sind benutzerorientiert, um eine bestmögliche Erfahrung auf Ihrer Website sicherzustellen</dd>
-              </div>
-              <div class="relative">
-                <dt class="text-base font-semibold leading-7 text-gray-900">SEO Strategien</dt>
-                <dd class="mt-2 text-base leading-7 text-gray-600">Wir sind Experten in Sachen Suchmaschinenoptimierung (SEO) und nutzen Blogs als leistungsstarkes Werkzeug, um organischen Traffic zu generieren. Unsere Strategien umfassen Keyword-Recherche, mobile Optimierung und die Erstellung hochwertiger Blog-Inhalte. Durch unser CMS-System können Sie Blogs jeder Zeit selber erstellen und anpassen.</dd>
-              </div>
-              <div class="relative">
-                <dt class="text-base font-semibold leading-7 text-gray-900">Technischen Fähigkeiten</dt>
-                <dd class="mt-2 text-base leading-7 text-gray-600">Unsere technischen Fähigkeiten bilden das Fundament unserer Dienstleistungen. Von der Frontend-Entwicklung bis zur Backend-Programmierung sind wir in der Lage, Websites zu gestalten, die nicht nur visuell ansprechend sind, sondern auch reibungslos funktionieren und den neuesten technischen Standards entsprechen.</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </div>
-    </section>
-    {% endblock Skills %}
-    <!--Skills End-->
-
-
-
-    <!--Pricing Beginn-->
-    {% block Pricing %}
-    <section class="scroll-my-4" id="Preise">
-      <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-          <div>
-            <h3 class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-              {{priceText.header}}
-            </h3>
-          </div>
-          <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight sm:text-4xl md:mx-auto">
-            <span class="relative inline-block">
-              <span class="relative text-gray-900">{{priceText.title}}</span>
-            </span>
-          </h2>
-          <p class="text-base text-gray-700 md:text-lg">
-            {{priceText.description}}
-          </p>
-        </div>
-        <div class="grid max-w-md gap-10 lg:gap-0 row-gap-5 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto">
-          <div class="lg:scale-90 flex flex-col justify-between p-8 transition-shadow duration-300 bg-blue-300 rounded-2xl shadow-2xl sm:items-center hover:shadow">
-            <div class="text-center">
-              <div class="text-lg font-semibold">Standard </div>
-              <div class="flex items-center justify-center mt-2">
-                <div class="mr-1 text-5xl font-bold">20 €</div>
-                <div class="text-gray-700">/ Monat</div>
-              </div>
-              <div class="mt-2 space-y-3">
-                <div class="text-black text-lg">250 € Einmalzahlung</div>
-                <div class="text-gray-700">1-Domain</div>
-                <div class="text-gray-700">Cookies</div>
-                <div class="text-gray-700">Optimiert für alle Geräte</div>
-                <div class="text-gray-700">Datenschutz und Impressum</div>
-                <div class="text-gray-700">Funktionen: Karte, Galerie, etc.</div>
+  <!-- ====== Contact Section Start -->
+  <section class="overflow-hidden py-24 bg-white">
+    <div class="container mx-auto">
+      <div class="flex flex-wrap justify-center">
+        <div class="w-full px-4 xl:w-10/12">
+          <div class="mb-16 flex flex-wrap bg-[#40904d] px-5 py-14 sm:p-14">
+            <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+              <div class="mb-5 flex lg:mb-0">
+                <div class="mr-4">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28 4.7998H4.00001C2.30001 4.7998 0.850006 6.1998 0.850006 7.9498V24.1498C0.850006 25.8498 2.25001 27.2998 4.00001 27.2998H28C29.7 27.2998 31.15 25.8998 31.15 24.1498V7.8998C31.15 6.1998 29.7 4.7998 28 4.7998ZM28 7.0498C28.05 7.0498 28.1 7.0498 28.15 7.0498L16 14.8498L3.85001 7.0498C3.90001 7.0498 3.95001 7.0498 4.00001 7.0498H28ZM28 24.9498H4.00001C3.50001 24.9498 3.10001 24.5498 3.10001 24.0498V9.2498L14.8 16.7498C15.15 16.9998 15.55 17.0998 15.95 17.0998C16.35 17.0998 16.75 16.9998 17.1 16.7498L28.8 9.2498V24.0998C28.9 24.5998 28.5 24.9498 28 24.9498Z" fill="white"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="text-lg font-semibold text-white">E-Mail</h5>
+                  <p class="text-base text-white/70">info@example.com</p>
+                  <p class="text-base text-white/70">sales@yourmail.com</p>
+                </div>
               </div>
             </div>
-            <div>
-              <a href="{% url 'kontakt' %}" class="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-blue-900 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none">
-                Kontaktieren Sie uns
-              </a>
-              <p class="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
-                Dieses Angebot gilt für einfaches Webdesign, siehe Vorlagen.
-              </p>
-            </div>
-          </div>
-          <div class="flex flex-col justify-between p-8 transition-shadow duration-300 bg-blue-300 rounded-2xl shadow-2xl sm:items-center hover:shadow">
-            <div class="text-center">
-              <div class="text-lg font-semibold">Dynamische Seite </div>
-              <div class="flex items-center justify-center mt-2">
-                <div class="mr-1 text-5xl font-bold">30 €</div>
-                <div class="text-gray-700">/ Monat</div>
-              </div>
-              <div class="mt-2 space-y-3">
-                <div class="text-black text-lg">500 € Einmalzahlung</div>
-                <div class="text-gray-700">siehe Standard</div>
-                <div class="text-gray-700">+</div>
-                <div class="text-gray-700">Content Management System</div>
-                <div class="text-gray-700">Schulung für die Benutzung</div>
-
-              </div>
-            </div>
-            <div>
-              
-              <a href="{% url 'kontakt' %}" class="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-blue-900 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none">
-                Kontaktieren Sie uns
-              </a>
-              <p class="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
-                Unser Eigens entwickeltes Content Managment System, individuell angepasst für Ihre Website.
-              </p>
-            </div>
-          </div>
-          <div class="lg:scale-90 flex flex-col justify-between p-8 transition-shadow duration-300 bg-blue-300 rounded-2xl shadow-2xl sm:items-center hover:shadow">
-            <div class="text-center">
-              <div class="text-lg font-semibold">Individuelles Angebot</div>
-              <div class="flex items-center justify-center mt-2">
-                <div class="mr-1 text-5xl font-bold">? €</div>
-                <div class="text-gray-700">/ Monat</div>
-              </div>
-              <div class="mt-2 space-y-3">
-                <div class="text-black text-lg">? € Einmalzahlung</div>
-                <div class="text-gray-700">Gerne erarbeiten wir</div>
-                <div class="text-gray-700">gemeinsam mit Ihnen</div>
-                <div class="text-gray-700">individuelle Softwarelösungen</div>
-                <div class="text-gray-700">und Eigenprogrammierungen</div>
+            <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+              <div class="mb-5 flex lg:mb-0">
+                <div class="mr-4">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_948_5886)">
+                      <path d="M24.3 31.1499C22.95 31.1499 21.4 30.7999 19.7 30.1499C16.3 28.7999 12.55 26.1999 9.2 22.8499C5.85 19.4999 3.25 15.7499 1.9 12.2999C0.4 8.59994 0.55 5.54994 2.3 3.84994C2.35 3.79994 2.45 3.74994 2.5 3.69994L6.7 1.19994C7.75 0.599942 9.1 0.899942 9.8 1.89994L12.75 6.29994C13.45 7.34994 13.15 8.74994 12.15 9.44994L10.35 10.6999C11.65 12.7999 15.35 17.9499 21.25 21.6499L22.35 20.0499C23.2 18.8499 24.55 18.4999 25.65 19.2499L30.05 22.1999C31.05 22.8999 31.35 24.2499 30.75 25.2999L28.25 29.4999C28.2 29.5999 28.15 29.6499 28.1 29.6999C27.2 30.6499 25.9 31.1499 24.3 31.1499ZM3.8 5.54994C2.85 6.59994 2.9 8.74994 4 11.4999C5.25 14.6499 7.65 18.0999 10.8 21.2499C13.9 24.3499 17.4 26.7499 20.5 27.9999C23.2 29.0999 25.35 29.1499 26.45 28.1999L28.85 24.0999C28.85 24.0499 28.85 24.0499 28.85 23.9999L24.45 21.0499C24.45 21.0499 24.35 21.0999 24.25 21.2499L23.15 22.8499C22.45 23.8499 21.1 24.1499 20.1 23.4999C13.8 19.5999 9.9 14.1499 8.5 11.9499C7.85 10.8999 8.1 9.54994 9.1 8.84994L10.9 7.59994V7.54994L7.95 3.14994C7.95 3.09994 7.9 3.09994 7.85 3.14994L3.8 5.54994Z" fill="white"></path>
+                      <path d="M29.3 14.25C28.7 14.25 28.25 13.8 28.2 13.2C27.8 8.15003 23.65 4.10003 18.55 3.75003C17.95 3.70003 17.45 3.20003 17.5 2.55003C17.55 1.95003 18.05 1.45003 18.7 1.50003C24.9 1.90003 29.95 6.80003 30.45 13C30.5 13.6 30.05 14.15 29.4 14.2C29.4 14.25 29.35 14.25 29.3 14.25Z" fill="white"></path>
+                      <path d="M24.35 14.7002C23.8 14.7002 23.3 14.3002 23.25 13.7002C22.95 11.0002 20.85 8.90018 18.15 8.55018C17.55 8.50018 17.1 7.90018 17.15 7.30018C17.2 6.70018 17.8 6.25018 18.4 6.30018C22.15 6.75018 25.05 9.65018 25.5 13.4002C25.55 14.0002 25.15 14.5502 24.5 14.6502C24.4 14.7002 24.35 14.7002 24.35 14.7002Z" fill="white"></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_948_5886">
+                        <rect width="32" height="32" fill="white"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="text-lg font-semibold text-white">
+                    Telefon
+                  </h5>
+                  <p class="text-base text-white/70">+09 098 2345 332</p>
+                  <p class="text-base text-white/70">+77 904 5673 345</p>
+                </div>
               </div>
             </div>
-            <div>
-              <a href="{% url 'kontakt' %}" class="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-blue-900 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none">
-                Kontaktieren Sie uns
-              </a>
-              <p class="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
-                Dieses Angebot gilt für komplexe und individuelle Lösungen.
-              </p>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-    {% endblock Pricing %}
-    <!--Pricing End-->
-
-
-
-    <!--Team Beginn-->
-    {% block Team %}
-    <section class="scroll-my-4" id="Team">
-      <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div class="mx-auto mb-10 lg:max-w-xl sm:text-center">
-          <h2 class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-            {{teamText.header}}
-          </h2>
-          <p class="text-base leading-8 text-gray-600 md:text-lg">
-            {{teamText.description}}
-          </p>
-        </div>
-        <div class="grid gap-10 mx-auto sm:grid-cols-2 lg:max-w-screen-md">
-          <div>
-            <div class="relative pb-56 mb-4 rounded shadow lg:pb-64">
-              <img class="absolute object-cover w-full h-full rounded-xl" src="{% static 'images/Sebastian.jpeg' %}" alt="Sebastian Rauch"/>
-            </div>
-            <div class="flex flex-col sm:text-center">
-              <p class="text-lg font-bold text-blue-900">Sebastian Rauch</p>
-              <p class="mb-5 text-xs text-gray-800">Product Manager</p>
-            </div>
-          </div>
-          <div>
-            <div class="relative pb-56 mb-4 rounded shadow lg:pb-64">
-              <img class="absolute object-cover w-full h-full rounded-xl" src="{% static 'images/Lennert.jpg' %}" alt="Lennert Meißner"/>
-            </div>
-            <div class="flex flex-col sm:text-center">
-              <p class="text-lg font-bold text-blue-900">Lennert Meißner</p>
-              <p class="mb-5 text-xs text-gray-800">Development</p>
+            <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+              <div class="mb-5 flex lg:mb-0">
+                <div class="mr-4">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.2 11.0498C20.2 8.5498 18.2 6.5498 15.7 6.5498C13.2 6.5498 11.2 8.5498 11.2 11.0498C11.2 13.5498 13.2 15.5498 15.7 15.5498C18.2 15.5498 20.2 13.5498 20.2 11.0498ZM13.45 11.0498C13.45 9.7998 14.45 8.7998 15.7 8.7998C16.95 8.7998 17.95 9.7998 17.95 11.0498C17.95 12.2998 16.95 13.2998 15.7 13.2998C14.45 13.2998 13.45 12.2998 13.45 11.0498Z" fill="white"></path>
+                    <path d="M31.1 29.4499L29.05 20.1999C28.95 19.7499 28.6 19.3999 28.1 19.3499L22.15 18.4999C24.05 15.7999 25.6 12.9499 25.6 10.7499C25.6 5.4499 21.15 1.1499 15.7 1.1499C10.25 1.1499 5.8 5.4499 5.8 10.7499C5.8 12.9499 7.35 15.7999 9.25 18.4999L3.25 19.3499C2.75 19.3999 2.4 19.7999 2.3 20.2999L0.900001 29.5499C0.850001 29.9499 1 30.3499 1.3 30.5999C1.6 30.8499 2 30.9499 2.4 30.7999L9 28.4999L15.65 30.7499C15.9 30.8499 16.15 30.8499 16.35 30.7499L23 28.4999L29.65 30.7499C29.75 30.7999 29.9 30.7999 30 30.7999C30.25 30.7999 30.55 30.6999 30.75 30.4999C31.05 30.2999 31.2 29.8499 31.1 29.4499ZM15.7 3.3999C19.95 3.3999 23.35 6.6999 23.35 10.7499C23.35 13.4999 19.4 18.7499 15.7 22.7999C12 18.7999 8.05 13.4999 8.05 10.7499C8.05 6.6999 11.45 3.3999 15.7 3.3999ZM23.35 26.2499C23.1 26.1499 22.85 26.1499 22.65 26.2499L16 28.4999L9.35 26.2499C9.1 26.1499 8.85 26.1499 8.65 26.2499L3.4 28.0499L4.4 21.4999L10.75 20.5499C11.9 21.9999 13.1 23.3499 14.05 24.3999C14.45 24.8499 15.05 25.0999 15.65 25.0999C16.25 25.0999 16.85 24.8499 17.25 24.3999C18.2 23.3499 19.4 21.9999 20.55 20.5499L27.05 21.4999L28.5 27.9999L23.35 26.2499Z" fill="white"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="text-lg font-semibold text-white">
+                    Adresse
+                  </h5>
+                  <p class="text-base text-white/70">
+                    4571 Sugar Camp Road, Owatonna, Minnesota, 55060
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    {% endblock Team %}
-    <!--Team End-->
 
+      <div class="flex flex-wrap justify-center">
+        <div class="w-full px-4 lg:w-7/12 xl:w-6/12">
+          <div class="mb-12 lg:mb-0 lg:mr-4">
+            <form>
+              <div class="flex flex-wrap">
+                <div class="w-full px-4 md:w-1/2">
+                  <div class="mb-7">
+                    <input id="firstName" type="text" name="firstName" placeholder="Vorname" class="w-full border border-stroke bg-transparent px-5 py-[17px] text-gray-500 outline-none focus:border-[#40904d]">
+                  </div>
+                </div>
+                <div class="w-full px-4 md:w-1/2">
+                  <div class="mb-7">
+                    <input id="lastName" type="text" name="lastName" placeholder="Nachname" class="w-full border border-stroke bg-transparent px-5 py-[17px] text-gray-500 outline-none focus:border-[#40904d]">
+                  </div>
+                </div>
+                <div class="w-full px-4 md:w-1/2">
+                  <div class="mb-7">
+                    <input id="email" type="email" name="email" placeholder="Email" class="w-full border border-stroke bg-transparent px-5 py-[17px] text-gray-500 outline-none focus:border-[#40904d]">
+                  </div>
+                </div>
+                <div class="w-full px-4 md:w-1/2">
+                  <div class="mb-7">
+                    <input id="number" type="text" name="number" placeholder="Telefon" class="w-full border border-stroke bg-transparent px-5 py-[17px] text-gray-500 outline-none focus:border-[#40904d]">
+                  </div>
+                </div>
+                <div class="w-full px-4">
+                  <div class="mb-7">
+                    <textarea id="message" name="message" placeholder="Nachricht" rows="6" class="w-full resize-none border border-stroke bg-transparent px-5 py-[17px] text-gray-500 outline-none focus:border-[#40904d]"></textarea>
+                  </div>
+                </div>
 
-
-    <!--U-Boot Beginn-->
-    {% block UBoot %}
-    <section class="h-72">
-      <div class="seaContainer">
-        <div class="submarine__container">
-          <div class="light"></div>
-          <div class="submarine__periscope"></div>
-          <div class="submarine__periscope-glass"></div>
-          <div class="submarine__sail">
-            <div class="submarine__sail-shadow dark1"></div>
-            <div class="submarine__sail-shadow light1"></div>
-            <div class="submarine__sail-shadow dark2"></div>
-          </div>
-          <div class="submarine__body">
-            <div class="submarine__window one"></div>
-            <div class="submarine__window two"></div>
-            <div class="submarine__shadow-dark"></div>
-            <div class="submarine__shadow-light"></div>
-            <div class="submarine__shadow-arcLight"></div>
-          </div>
-          <div class="submarine__propeller">
-            <div class="propeller__perspective">
-              <div class="submarine__propeller-parts darkOne"></div>
-              <div class="submarine__propeller-parts lightOne"></div>
-            </div>
+                <div class="w-full px-4">
+                  <div>
+                    <button type="submit" class="inline-flex items-center justify-center border border-transparent bg-[#40904d] px-7 py-3 text-base font-medium text-white hover:bg-opacity-90">
+                      Nachricht senden
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-        <div class="bubbles__container">
-          <span class="bubbles bubble-1"></span>
-          <span class="bubbles bubble-2"></span>
-          <span class="bubbles bubble-3"></span>
-          <span class="bubbles bubble-4"></span>
-        </div>
-        <div class="ground__container">
-          <div class="ground ground1">
-            <span class="up-1"></span>
-            <span class="up-2"></span>
-            <span class="up-3"></span>
-            <span class="up-4"></span>
-            <span class="up-5"></span>
-            <span class="up-6"></span>
-            <span class="up-7"></span>
-            <span class="up-8"></span>
-            <span class="up-9"></span>
-            <span class="up-10"></span>
-          </div>
-          <div class="ground ground2">
-            <span class="up-1"></span>
-            <span class="up-2"></span>
-            <span class="up-3"></span>
-            <span class="up-4"></span>
-            <span class="up-5"></span>
-            <span class="up-6"></span>
-            <span class="up-7"></span>
-            <span class="up-8"></span>
-            <span class="up-9"></span>
-            <span class="up-10"></span>
-            <span class="up-11"></span>
-            <span class="up-12"></span>
-            <span class="up-13"></span>
-            <span class="up-14"></span>
-            <span class="up-15"></span>
-            <span class="up-16"></span>
-            <span class="up-17"></span>
-            <span class="up-18"></span>
-            <span class="up-19"></span>
-            <span class="up-20"></span>
+
+        <div class="w-full px-4 lg:w-5/12 xl:w-4/12">
+          <div class="map-container">
+            <object style="border: 0; height: 450px; width: 100%" data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.7887109309127!2d-77.44196278417968!3d38.95165507956235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDU3JzA2LjAiTiA3N8KwMjYnMjMuMiJX!5e0!3m2!1sen!2sbd!4v1545420879707"></object>
           </div>
         </div>
       </div>
-    </section>
-    {% endblock UBoot %}
-    <!--U-Boot End-->
+    </div>
+  </section>
+  <!-- ====== Contact Section End -->
 
-  </div>
+  
 
   <!--FAQ Beginn-->
   {% block FAQ %}
-  <section itemscope itemtype="https://schema.org/FAQPage" class="bg-gray-700 text-white -mt-5">
+  <section itemscope itemtype="https://schema.org/FAQPage" class="bg-gray-100 text-gray-900 mt-12">
     <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
         <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
-            <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-white uppercase rounded-full bg-teal-accent-400">
+            <span class="mb-2 block text-lg font-semibold text-[#40904d]">
               FAQ
-            </p>
-          </div>
-          <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white sm:text-4xl md:mx-auto">
-            <span class="relative inline-block">
-              <span class="relative">Häufig gestellte Fragen</span>
             </span>
+          </div>
+          <h2 class="mb-3 text-3xl font-bold leading-[1.2] text-black sm:text-4xl md:text-[40px]">
+            Häufig gestellte Fragen
           </h2>
-          <p class="text-base text-white md:text-lg">
+          <p class="text-base md:text-lg text-gray-500">
             Oft werden uns die gleichen Fragen gestellt, deshalb versuchen wir
             das wichtigste hier zu beantworten. Bei weiteren Fragen können Sie
             sich jederzeit gerne melden.
           </p>
         </div>
         <div class="space-y-4">
-          {% csrf_token %}
-          {% for faq in FAQ %}
+
           
-          <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="border-b">
+          <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="border-b border-black">
             <button type="button" aria-label="Open item" title="Open item" class="flex items-center justify-between w-full p-4 focus:outline-none faq-toggle">
-              <div itemprop="name" class="text-lg font-medium">
-               {{ faq.question }}
+              <div itemprop="name" class="mb-2 text-[22px] font-semibold leading-[27px] text-black">
+               frage
               </div>
-              <svg viewBox="0 0 24 24" class="w-3 text-gray-600 faq-arrow">
-                <polyline fill="white" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
+              <svg viewBox="0 0 24 24" class="w-3 faq-arrow">
+                <polyline fill="black" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
               </svg>
             </button>
-            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="p-4 pt-0 hidden faq-content">
-              <div itemprop="text" class="text-white">
-                {{ faq.answer }}
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="p-4 pt-0 hidden faq-content text-gray-600">
+              <div itemprop="text" class="">
+                antwort
               </div>
             </div>
           </div>
-          {% endfor %}
 
         </div>
       </div>

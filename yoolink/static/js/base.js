@@ -9,6 +9,18 @@ function toggleMenu() {
   }
 }
 
+function toggle() {
+  const menu = document.querySelector("#menu");
+  if (menu.classList.contains("hidden")) {
+    menu.classList.remove("hidden");
+    menu.classList.add("absolute");
+  } else {
+    menu.classList.add("hidden");
+    menu.classList.remove("absolute");
+  }
+}
+
+
 function cookieRefresh() {
   if (cookieselect == null) {
     cookie.classList.add("block");
