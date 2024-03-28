@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static i18n compress%}
+
+{% block title %}{{block.super}} - Cms Login{% endblock title %}
+
+{% block content %}
+    <section class="text-gray-600 body-font bg-gray-100">
+        <div class="container xl:px-32 px-5 py-36 mx-auto flex flex-wrap items-center">
+            <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+                <h1 class="title-font font-bold lg:text-7xl text-6xl text-blue-600 text-center md:text-left ">YooLink
+                    CMS</h1>
+                <p
+                    class="leading-relaxed mt-4 lg:text-3xl text-2xl lg:max-w-xl font-medium  text-black text-center md:text-left ">
+                    Manage your Content with our user friendly Content-Management-System</p>
+            </div>
+            <div
+                class="lg:w-2/6 md:w-1/2 bg-white shadow-lg rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div>
+                        <div class="text-sm font-bold text-gray-700 tracking-wide">Nutzername</div>
+                        <input
+                            class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
+                            type="text" placeholder="Username" name="username">
+                    </div>
+                    <div class="mt-8">
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm font-bold text-gray-700 tracking-wide">
+                                Passwort
+                            </div>
+                        </div>
+                        <input
+                            class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
+                            type="password" placeholder="Enter your password" name="password">
+                    </div>
+                    <div class="mt-10">
+                        <button class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
+                            font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
+                            shadow-lg">
+                            Log In
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    {% endblock content %}
+</body>
+
+</html>
