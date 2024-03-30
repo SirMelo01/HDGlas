@@ -1,3 +1,14 @@
+var link = document.createElement("link");
+link.rel = "stylesheet";
+link.href = "https://unpkg.com/leaflet@1.9.3/dist/leaflet.css";
+link.integrity = "sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=";
+link.crossOrigin = "";
+
+var script = document.createElement("script");
+script.src = "https://unpkg.com/leaflet@1.9.3/dist/leaflet.js";
+script.integrity = "sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=";
+script.crossOrigin = "";
+
 var font1 = document.createElement("link");
 font1.rel = "preconnect";
 font1.href = "https://fonts.googleapis.com";
@@ -11,29 +22,21 @@ var font3 = document.createElement("link");
 font3.href = "https://fonts.googleapis.com/css2?family=Roboto&display=swap";
 font3.rel = "stylesheet";
 
-var analytic1 = document.createElement("script");
-analytic1.async = "";
-analytic1.src = "https://www.googletagmanager.com/gtag/js?id=G-ZYQPVZ3REE";
-
-var analytic2 = document.createElement("script");
-analytic2.innerHTML = "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-ZYQPVZ3REE');";
-
 
 var cookieselect = getCookie("Cookie-Consent");
 var cookiefontselect = getCookie("Cookie-Font");
-var cookieanalyticselect = getCookie("Cookie-Analytic")
+var cookiemapselect = getCookie("Cookie-Map");
 
+if(cookiemapselect === "true"){
+  document.head.appendChild(link);
+  document.head.appendChild(script);
+  //hier dann weiter scripte einbinden
+}
 if(cookiefontselect === "true"){
   document.head.appendChild(font1);
   document.head.appendChild(font2);
   document.head.appendChild(font3);
 }
-setTimeout(function(){
-  if(cookieanalyticselect === "true"){
-    document.body.insertBefore(analytic1, document.body.firstChild);
-    document.body.insertBefore(analytic2, document.body.firstChild);
-  }
-},2000)
 
 
 

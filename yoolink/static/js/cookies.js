@@ -1,6 +1,6 @@
 var form = document.querySelector("form");
 var cookieslider = document.getElementById("cookie");
-var analyticslider = document.getElementById("analytics");
+var mapslider = document.getElementById("map");
 var fontslider = document.getElementById("font");
 
 function cookiereload2() {
@@ -12,12 +12,12 @@ function cookiereload2() {
       "Cookie-Consent=false; expires=" + new Date(9999, 0, 1).toUTCString() + "; path=/";
   }
 
-  if (analyticslider.checked === true) {
+  if (mapslider.checked === true) {
     document.cookie =
-      "Cookie-Analytic=true; expires=" + new Date(9999, 0, 1).toUTCString() + "; path=/";
+      "Cookie-Map=true; expires=" + new Date(9999, 0, 1).toUTCString() + "; path=/";
   } else {
     document.cookie =
-      "Cookie-Analytic=false; expires=" + new Date(9999, 0, 1).toUTCString() + "; path=/";
+      "Cookie-Map=false; expires=" + new Date(9999, 0, 1).toUTCString() + "; path=/";
   }
 
   if (fontslider.checked === true) {
@@ -34,8 +34,8 @@ onload = function () {
     cookieslider.checked = true;
   }
 
-  if (cookieanalyticselect === "true") {
-    analyticslider.checked = true;
+  if (cookiemapselect === "true") {
+    mapslider.checked = true;
   }
 
   if (cookiefontselect === "true") {
@@ -45,17 +45,17 @@ onload = function () {
 
 cookieslider.addEventListener("change", (e) => {
   if (cookieslider.checked === true) {
-    analyticslider.checked = true;
+    mapslider.checked = true;
     fontslider.checked = true;
   } else {
-    analyticslider.checked = false;
+    mapslider.checked = false;
     fontslider.checked = false;
   }
   cookiereload2();
 });
 
-analyticslider.addEventListener("change", (e) => {
-  if (analyticslider.checked === true) {
+mapslider.addEventListener("change", (e) => {
+  if (mapslider.checked === true) {
     if (fontslider.checked === true) {
       cookieslider.checked = true;
     }
@@ -67,7 +67,7 @@ analyticslider.addEventListener("change", (e) => {
 
 fontslider.addEventListener("change", (e) => {
   if (fontslider.checked === true) {
-    if (analyticslider.checked === true) {
+    if (mapslider.checked === true) {
       cookieslider.checked = true;
     }
   } else {

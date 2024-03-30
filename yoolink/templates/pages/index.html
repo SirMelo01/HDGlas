@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load compress static %}
 
-{% block title %}{{block.super}} - Webdesign Agentur{% endblock title %}
+{% block title %}{{block.super}} - Autoglas{% endblock title %}
 
 {% block content %}
 
@@ -17,10 +17,9 @@
 
 
   <!--Templates Beginn-->
-  {% block Hero %}
   <div class="relative pb-[110px] pt-[150px] lg:pt-[170px]">
     <div class="container mx-auto px-2 md:px-0">
-      <div class="flex flex-wrap items-center">
+      <div class="flex flex-wrap items-center sm:px-5">
         <div class="w-full px-4 lg:w-1/2">
           <div class="mb-12 lg:mb-0">
             <h2 class="mb-5 text-3xl font-bold leading-[1.208] text-black lg:text-[38px] xl:text-[40px]">
@@ -58,7 +57,6 @@
       </div>
     </div>
   </div>
-  {% endblock Hero %}
   <!--Templates End-->
 
 
@@ -77,20 +75,20 @@
         </div>
         <div class="w-full px-4 lg:w-1/2 xl:w-7/12">
           <div class="mt-12 flex flex-wrap items-center justify-center lg:mt-0 xl:justify-end">
-            <a href="javascript:void(0)" class="mx-4 flex min-w-[150px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
-              <img src="images/car.svg" alt="image" class="w-full h-24 ">
+            <a href="javascript:void(0)" class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+              <img src="{% static 'images/car.svg' %}" alt="image" class="w-full h-16 sm:h-24 ">
             </a>
-            <a href="javascript:void(0)" class="mx-4 flex min-w-[150px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
-              <img src="images/tractor.svg" alt="image" class="w-full h-24">
+            <a href="javascript:void(0)" class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+              <img src="{% static 'images/tractor.svg' %}" alt="image" class="w-full h-16 sm:h-24">
             </a>
-            <a href="javascript:void(0)" class="mx-4 flex min-w-[150px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
-              <img src="images/truck.svg" alt="image" class="w-full h-24">
+            <a href="javascript:void(0)" class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+              <img src="{% static 'images/truck.svg' %}" alt="image" class="w-full h-16 sm:h-24">
             </a>
-            <a href="javascript:void(0)" class="mx-4 flex min-w-[150px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
-              <img src="images/camper.svg" alt="image" class="w-full h-24">
+            <a href="javascript:void(0)" class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+              <img src="{% static 'images/camper.svg' %}" alt="image" class="w-full h-16 sm:h-24">
             </a>
-            <a href="javascript:void(0)" class="mx-4 flex min-w-[150px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
-              <img src="images/bus.svg" alt="image" class="w-full h-24">
+            <a href="javascript:void(0)" class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+              <img src="{% static 'images/bus.svg' %}" alt="image" class="w-full h-16 sm:h-24">
             </a>
           </div>
         </div>
@@ -217,7 +215,7 @@
         <div class="w-full px-4 lg:w-6/12">
           <div class="relative mb-12 lg:mb-0">
             <div class="mx-auto max-w-[430px]">
-              <img src="images/placeholder.png" alt="about image" class="w-full">
+              <img src="{% static 'images/placeholder.png' %}" alt="about image" class="w-full">
             </div>
           </div>
         </div>
@@ -227,7 +225,7 @@
               Was wir machen!
             </span>
             <h2 class="mb-11 text-3xl font-bold leading-tight text-black sm:text-4xl sm:leading-tight md:text-5xl lg:text-4xl lg:leading-tight xl:text-5xl">
-              We develop &amp; create awesome website .
+              We develop &amp; create awesome website.
             </h2>
 
             <div class="mb-8 flex">
@@ -293,7 +291,7 @@
             <div class="mx-auto h-full min-w-[300px] xs:min-w-[368px] sm:min-w-[508px] sm:p-6 md:min-w-[630px] lg:min-w-[738px] 2xl:min-w-[910px]">
               <div class="w-full md:flex">
                 <div class="relative mb-12 w-full max-w-[310px] md:mb-0 md:mr-12 md:max-w-[250px] lg:mr-14 lg:max-w-[280px] xl:max-w-[310px] 2xl:mr-16">
-                  <img src="images/Andreas2.jpg" alt="image" class="w-full">
+                  <img src="{% static 'images/Andreas2.jpg' %}" alt="image" class="w-full">
                   <span class="absolute -left-6 -top-6 z-[-1] hidden sm:block">
                     <svg width="77" height="77" viewBox="0 0 77 77" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="1.66343" cy="74.5221" r="1.66343" transform="rotate(-90 1.66343 74.5221)" fill="#3758F9"></circle>
@@ -343,7 +341,7 @@
                 <div class="w-full">
                   <div>
                     <div class="mb-8 mt-5">
-                      <img src="images/Logooriginal.png" alt="hd-glas" class="">
+                      <img src="{% static 'images/Logooriginal.png' %}" alt="hd-glas" class="">
                     </div>
                     <p class="mb-11 text-base font-normal italic leading-[1.81] text-gray-500 sm:text-[22px]">
                       File storage made easy – including powerful features
@@ -506,11 +504,22 @@
           </div>
         </div>
 
+
         <div class="w-full px-4 lg:w-5/12 xl:w-4/12">
-          <div class="map-container">
-            <object style="border: 0; height: 450px; width: 100%" data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.7887109309127!2d-77.44196278417968!3d38.95165507956235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDU3JzA2LjAiTiA3N8KwMjYnMjMuMiJX!5e0!3m2!1sen!2sbd!4v1545420879707"></object>
+          <div id="map" class="w-full h-[450px] hidden"></div>
+          <div id="covermap" class="w-full hidden relative h-[450px]">
+            <img class="h-full w-full object-cover brightness-75" src="{% static 'images/BlackandWhiteMap.png' %}" alt="Schwarzweiskarte" />
+            <div class="z-20 absolute w-full py-2.5 top-2.5 md:top-1/4 bottom-0.5 inset-x-0 text-white text-sm text-center leading-4 lg:text-lg md:text-base">
+              Inhalte von Leaflet werden aufgrund deiner aktuellen Cookie-Einstellungen nicht angezeigt. Mehr dazu erfährst du in unserer
+              <a href="./datenschutz" class="hover:bg-slate-500 hover:text-white hover:rounded-sm transition ease-linear duration-300 text-blue-600">
+                Datenschutzerklärung
+              </a>. Du kannst deine Zustimmung jederzeit widerrufen. Gehe dazu einfach in deine eigenen
+              <a href="./cookies" class="hover:bg-slate-500 hover:text-white hover:rounded-sm transition ease-linear duration-300 text-blue-600">Cookie-Einstellungen</a>.
+            </div>
           </div>
         </div>
+
+
       </div>
     </div>
   </section>
