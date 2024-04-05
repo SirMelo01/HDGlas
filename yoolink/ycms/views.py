@@ -1619,6 +1619,7 @@ def email_send(request):
     message = request.data.get('message')
     email = request.data.get('email')
     title = request.data.get('title')
+    number = request.data.get('number', '')
     name = request.data.get('name', 'Unbekannt')
     
     if not message or not email or not title or not name:
@@ -1639,10 +1640,14 @@ def email_send(request):
     message = Message.objects.create(name=name,message=message,email=email,title=title)
 
     subject_company = "Neue Nachricht in Ihrem CMS"
-    message_company = f"Hallo Team,\n\n{ name } ({ email }) hat eine neue Anfrage gesendet:\n\n"
+    message_company = f"Hallo Team,\n\n{ name } ({ email }"
+    if number:
+        message_company += f", {number}"
+    message_company += ") hat eine neue Anfrage gesendet:\n\n"
     message_company += f"Betreff: { title }\n\n"
     message_company += f"Nachricht: { message }\n\n"
-    message_company += f"Bitte schauen Sie im Dashboard nach, um weitere Details zu erhalten: {dashboard_url}cms/messages/{message.id}\n\n"
+    message_company += f"Bitte schauen Sie im Dashboard nach, um weitere Details zu erhalten: {dashboard_url}cms/messages/{message.id}\n"
+    message_company += f"Bitte nicht auf diese Email antworten!\n\n"
     message_company += "Vielen Dank!\n\nMit freundlichen Grüßen,\nIhr YooLink"
     user_settings = UserSettings.objects.filter(user__is_staff=False).first()
     # Replace 'your_company_email' with the actual email address of your company

@@ -50,9 +50,10 @@ $(document).ready(function() {
     event.preventDefault(); // Prevent the default form submission
     console.log("Sende email...")
     var formData = {
-        name: $('#name').val(),
+        name: $('#firstName').val() + " " + $('#lastName').val(),
         email: $('#email').val(),
         title: $('#subject').val(),
+        number: $('#number').val(),
         message: $('#message').val(),
         csrfmiddlewaretoken: csrftoken,
     };
@@ -63,7 +64,6 @@ $(document).ready(function() {
         data: formData,
         success: function(response) {
             // Handle successful response here
-            console.log('Form submitted successfully');
             if(response.success) {
               sendNotif("Ihre Nachricht wurde erfolgreich gesendet", "success")
             }
