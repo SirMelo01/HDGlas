@@ -58,7 +58,8 @@
               <nav class="absolute right-4 top-full z-40 w-full max-w-[250px] rounded-lg bg-white px-6 py-5 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:shadow-none hidden">
                 <ul class="hidden lg:flex">
                   <li><a href="#" class="flex py-2 text-base font-medium text-gray-500 hover:text-black lg:ml-12 lg:inline-flex">Home</a></li>
-                  <li><a href="#" class="flex py-2 text-base font-medium text-gray-500 hover:text-black lg:ml-12 lg:inline-flex">Leistungen</a></li>
+                  <li><a href="#" class="flex py-2 text-base font-medium text-gray-500 hover:text-black lg:ml-12 lg:inline-flex">Autoglas</a></li>
+                  <li><a href="#" class="flex py-2 text-base font-medium text-gray-500 hover:text-black lg:ml-12 lg:inline-flex">Hausmeisterservice</a></li>
                   <li><a href="#" class="flex py-2 text-base font-medium text-gray-500 hover:text-black lg:ml-12 lg:inline-flex">Galerie</a></li>
                   <li><a href="#" class="flex py-2 text-base font-medium text-gray-500 hover:text-black lg:ml-12 lg:inline-flex">Kontakt</a></li>
                 </ul>
@@ -113,7 +114,8 @@
                   <nav>
                     <ul class="space-y-4">
                       <li><a href="{% url 'home' %}#Busverkehr" aria-label="Busunternehmen" title="Busunternehmen" class="font-medium tracking-wide text-gray-700 hover:underline " onclick="toggle()">Home</a></li>
-                      <li><a href="{% url 'home' %}#Tankstelle" aria-label="Tankstelle" title="Tankstelle" class="font-medium tracking-wide text-gray-700 hover:underline " onclick="toggle()">Leistungen</a></li>
+                      <li><a href="{% url 'home' %}#Tankstelle" aria-label="Tankstelle" title="Tankstelle" class="font-medium tracking-wide text-gray-700 hover:underline " onclick="toggle()">Autoglas</a></li>
+                      <li><a href="{% url 'home' %}#Tankstelle" aria-label="Tankstelle" title="Tankstelle" class="font-medium tracking-wide text-gray-700 hover:underline " onclick="toggle()">Hausmeisterservice</a></li>
                       <li><a href="{% url 'home' %}#Autopflege" aria-label="Autopflege" title="Autopflege" class="font-medium tracking-wide text-gray-700 hover:underline " onclick="toggle()">Galerie</a></li>
                       <li><a href="{% url 'home' %}#Jobs" aria-label="Jobs" title="Jobs" class="font-medium tracking-wide text-gray-700 hover:underline " onclick="toggle()">Kontakt</a></li>
                       <li>
@@ -205,9 +207,8 @@
               <a href="javascript:void(0)" class="mb-6 inline-block max-w-[160px]">
                 <img src="{% static 'images/Logotext.png' %}" alt="logo" class="max-w-full">
               </a>
-              <p class="mb-7 text-base text-gray-500">
-                Lorem ipsum dolor amet consectetur adipiscing elit do eiusmod
-                tempor incididunt ut labore et dolore.
+              <p class="mb-7 text-base p-0 text-gray-500">
+                Ihr zuverlässiger Partner für schnelle und unkomplizierte Lösungen bei Steinschlag und Scheibenaustausch!
               </p>
               <div class="flex items-center">
                 <a href="javascript:void(0)" class="text-gray-700 px-3 hover:text-[#40904d]">
@@ -238,7 +239,7 @@
 
           <div class="w-full px-4 sm:w-1/2 lg:w-3/12">
             <div class="mb-10 w-full">
-              <h4 class="mb-9 text-lg font-semibold text-black">
+              <h4 class="mb-9 text-lg p-0 font-semibold text-black">
                 Nützliche Links
               </h4>
               <ul class="space-y-3">
@@ -262,7 +263,7 @@
           </div>
           <div class="w-full px-4 sm:w-1/2 lg:w-3/12">
             <div class="mb-10 w-full">
-              <h4 class="mb-9 text-lg font-semibold text-black">
+              <h4 class="mb-9 text-lg p-0 font-semibold text-black">
                 Rechtliches
               </h4>
               <ul class="space-y-3">
@@ -286,34 +287,34 @@
           </div>
           <div class="w-full px-4 sm:w-1/2 lg:w-3/12">
             <div class="mb-10 w-full">
-              <h4 class="mb-9 text-lg font-semibold text-black">
+              <h4 class="mb-9 p-0 text-lg font-semibold text-black">
                 Öffnungszeiten
               </h4>
-              <p class="mb-0.5 text-base text-gray-500">
+              <p class="mb-0.5 p-0 text-base text-gray-500">
                 <span class="mr-1">Montag 8:00 - 17:00</span>
               </p>
-              <p class="mb-0.5 text-base text-gray-500">
+              <p class="mb-0.5 p-0 text-base text-gray-500">
                 <span class="mr-1">Dienstag 8:00 - 17:00</span>
               </p>
-              <p class="mb-0.5 text-base text-gray-500">
+              <p class="mb-0.5 p-0 text-base text-gray-500">
                 <span class="mr-1">Mittwoch 8:00 - 17:00</span>
               </p>
-              <p class="mb-0.5 text-base text-gray-500">
+              <p class="mb-0.5 p-0 text-base text-gray-500">
                 <span class="mr-1">Donnerstag 8:00 - 17:00</span>
               </p>
-              <p class="mb-0.5 text-base text-gray-500">
+              <p class="mb-0.5 p-0 text-base text-gray-500">
                 <span class="mr-1">Freitag 8:00 - 17:00</span>
               </p>
-              <p class="text-base text-gray-500">
+              <p class="text-base p-0 text-gray-500">
                 <span class="mr-1">Samstag 8:00 - 13:00</span>
               </p>
             </div>
           </div>
         </div>
         <div class="flex px-4 justify-between pt-5 border-t lg:flex-row">
-          <p class="text-sm text-gray-600">
-            © HD-Glas GmbH 2024. Designed and hosted by <a class="link" href="https://yoolink.de/">YooLink</a>.
-          </p>
+          <span class="text-sm text-gray-600">
+            © HD-Glas 2024. Designed and hosted by <a class="link" href="https://yoolink.de/">YooLink</a>.
+          </span>
         </div>
       </div>
     </footer>

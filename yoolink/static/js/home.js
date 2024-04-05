@@ -15,16 +15,16 @@ function mapLoad() {
     covermap.classList.add("hidden");
     realmap.classList.remove("hidden");
 
-    // Karte wird geladen
-    map.setView([53.699497, 10.742065], 13);
+    // Karte wird geladen, 
+    map.setView([48.777909, 12.878083], 14);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution:
         '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map);
     
-    L.marker([53.699497, 10.742065]).addTo(map)
-    .bindPopup('W&K Schweißtechnik GmbH.<br> Bahnhofsallee 38, 23909 Ratzeburg.')
+    L.marker([48.777909, 12.878083]).addTo(map)
+    .bindPopup('HD-Glas <br> Deggendorfer Str. 36, 94447 Plattling')
     .openPopup();
     map.scrollWheelZoom.disable();
   }

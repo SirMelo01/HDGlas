@@ -3,45 +3,50 @@
 {% block title %}{{block.super}} | Impressum{% endblock title %}
 
 {% block content %}
-<div class="flex flex-wrap  ml-3 justify-normal md:justify-evenly mt-12 ">
-    <div class="mr-5 ">
-     <h1 class="text-3xl text-blue-900">
-        Impressum
-      </h1>
-      <p class="italic">Angaben gemäß § 5 TMG</p>
-      <br>
-      <p class="text-md">Sebastian Rauch</p>
-      <p class="text-md">Am Altbach 6</p>
-      <p class="text-md">94491 Hengersberg</p>
-      <h2 class="text-md mt-3">
-        Vertreten durch:
-      </h2>
-      <p class="text-md">Sebastian Rauch</p>
-      <br>
-    </div>
-    <div class="mb-5 md:mb-0  md:ml-0  ">
-      <h2 class="text-3xl mb-2 text-blue-900">
-        Kontakt
-      </h2>
-      <p class="text-md">Telefon: </p>
-      <p class="text-md">E-mail: yoolink@t-online.de</p>
-      <h2 class="text-md mt-3s">
-        Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
-      </h2>
-      <p class="text-md">Sebastian Rauch</p>
-      <p class="text-md">Am Altbach 6</p>
-      <p class="text-md">94491 Hengersberg</p>
-    </div>
+
+<div class="container pt-28 w-full mx-auto px-2 md:px-40">
+  <div>
+    <h1 class="text-3xl font-bold tracki text-center sm:text-5xl text-gray-900">Impressum</h1>
   </div>
-    <br>
-    <br>
-  <div class="hidden lg:block">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  <div class="mt-8">
+    <h2 class="text-lg md:text-2xl">HD-Glas</h2>
+    <p>Adresse: {% if owner_data and owner_data.address %}{{owner_data.address}}{% else %}Deggendorfer Str. 36, 94447 Plattling{% endif %}</p>
+    <p>Telefon: {% if owner_data and owner_data.tel_number %}{{owner_data.tel_number}}{% else %}+49 160 95066848{% endif %}</p>
+    <p>E-Mail: {% if owner_data and owner_data.email %}{{owner_data.email}}{% else %}andreas@hd-glas.de{% endif %}</p>
   </div>
-  {%endblock content%}
+  <div class="mt-6">
+    <h2 class="text-lg md:text-2xl">Geschäftsführung</h2>
+    {% if owner_data and owner_data.full_name %}{{owner_data.full_name}}{% else %}Andreas Ledaev{% endif %}
+  </div>
+  <div class="mt-6">
+    <h2 class="text-lg md:text-2xl">Registergericht</h2>
+    <p>Amtsgericht ____</p>
+    <p>HRB ____</p>
+  </div>
+  <div class="mt-6">
+    <h2 class="text-lg md:text-2xl">St.-Nr:</h2>
+    <p>108/244/00925</p>
+  </div>
+  <div class="mt-6">
+    <h2 class="text-lg md:text-2xl">Ust-IdNr.</h2>
+    <p>84657120927</p>
+  </div>
+  <div class="mt-6">
+    <h2 class="text-lg md:text-2xl">Haftungshinweis</h2>
+    <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Diese Erklärung gilt für alle auf unserer Homepage angebrachten Links und für alle Inhalte der Seiten, zu denen Links führen.
+    </p>
+  </div>
+  <div class="mt-6">
+    <h2 class="text-lg md:text-2xl">Copyright</h2>
+    <p>© W&K Schweißtechnik Handelsgesellschaft mbH. Alle Rechte vorbehalten.</p>
+    <p>Text, Bilder, Grafiken, Sound, Animationen und Videos unterliegen dem Schutz des Urheberrechtes und anderer Schutzgesetze. Der Inhalt dieser Websites darf nicht zu kommerziellen Zwecken kopiert, verbreitet, verändert oder Dritten zugänglich gemacht werden. Einige W&K Schweißtechnik Handelsgesellschaft mbH - Websites enthalten außerdem Bilder, die dem Copyright Dritter unterliegen.
+    </p>
+  </div>
+  <div class="mt-6 mb-8">
+    <h2 class="text-lg md:text-2xl mb-30">Markenschutz</h2>
+    <p>Verwendete Kennzeichen sind Marken ihrer jeweiligen Eigentümer.</p>
+  </div>
+</div>
+
+
+{%endblock content%}
