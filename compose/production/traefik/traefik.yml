@@ -31,7 +31,7 @@ certificatesResolvers:
 http:
   routers:
     web-secure-router:
-      rule: "Host(`yoolink.de`) || Host(`www.yoolink.de`)"
+      rule: "Host(`hd-glas.de`) || Host(`www.hd-glas.de`)"
       entryPoints:
         - web-secure
       middlewares:
@@ -42,7 +42,7 @@ http:
         certResolver: letsencrypt
 
     flower-secure-router:
-      rule: "Host(`yoolink.de`)"
+      rule: "Host(`hd-glas.de`)"
       entryPoints:
         - flower
       service: flower
@@ -51,7 +51,7 @@ http:
         certResolver: letsencrypt
 
     web-media-router:
-      rule: "Host(`yoolink.de`) && PathPrefix(`/media/`)"
+      rule: "Host(`hd-glas.de`) && PathPrefix(`/media/`)"
       entryPoints:
         - web-secure
       middlewares:
