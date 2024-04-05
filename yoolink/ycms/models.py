@@ -39,7 +39,7 @@ def unique_image_name(instance, filename):
     """
     timestamp = timezone.now().strftime("%Y%m%d%H%M%S")
     base, ext = os.path.splitext(filename)
-    return f"yoolink/images/{slugify(base)}_{timestamp}{ext}"
+    return f"hdglas/images/{slugify(base)}_{timestamp}{ext}"
 
 class fileentry(models.Model):
     file = models.ImageField(upload_to=unique_image_name)
@@ -64,7 +64,7 @@ def upload_to_galery_image(instance, filename):
     """
     timestamp = timezone.now().strftime("%Y%m%d%H%M%S")
     base, ext = os.path.splitext(filename)
-    return f"yoolink/galeryImages/{slugify(base)}_{timestamp}{ext}"
+    return f"hdglas/galeryImages/{slugify(base)}_{timestamp}{ext}"
 
 class GaleryImage(models.Model):
     upload = models.ImageField(upload_to=upload_to_galery_image)
@@ -98,7 +98,7 @@ Blog
 """
 
 def upload_to_blog_image(instance, filename):
-    return f"yoolink/blogs/{instance.id}/{filename}"
+    return f"hdglas/blogs/{instance.id}/{filename}"
 def default_code():
     return dict()
 class Blog(models.Model):
@@ -157,7 +157,7 @@ class Brand(models.Model):
         return self.name
 
 def upload_to_product_image(instance, filename):
-    return f"yoolink/products/{instance.id}/{filename}"
+    return f"hglas/products/{instance.id}/{filename}"
 
 class Product(models.Model):
     title = models.CharField(max_length=255, unique=True)

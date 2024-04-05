@@ -169,10 +169,10 @@ MEDIA_URL = "/media/"
 
 
 DEFAULT_FILE_STORAGE = 'config.settings.cdn.backends.MediaRootS3Boto3Storage'
-AWS_ACCESS_KEY_ID='DO00H2NXTAXBZ89DMKPK'
+AWS_ACCESS_KEY_ID='DO00BX83HRMBKBDNFHG7'
 AWS_SECRET_ACCESS_KEY = env(
     "DIGITAL_OCEAN_SECRET_KEY", 
-    default="6gOdmTCnqhEsFvtb0kFKJCibvYkKyKqjC5k6kfMCGsc",
+    default="L4UN+DdJScTNpu5FF7EY1RuJH5fu0QlZchGl6ePhgMQ",
 )
 # Save Images in Cache and enable public access
 AWS_S3_OBJECT_PARAMETERS = {
