@@ -13,7 +13,7 @@
   {% endblock css %}
 
 
-  <!--Templates Beginn-->
+  <!--Home Beginn-->
   <div class="relative pb-[110px] pt-[150px] lg:pt-[170px]">
     <div class="container mx-auto px-2 md:px-0">
       <div class="flex flex-wrap items-center sm:px-5">
@@ -25,10 +25,11 @@
             <p class="mb-8 max-w-[485px] text-base md:text-lg text-gray-500">
               Die Spezialisten von HD-Glas in Plattling beheben schnell und unbürokratisch Ihren Steinschlagschaden oder erneuern die Scheiben. Dazu steht Ihnen das Team von HD-Glas gerne mit Rat und Tat zur Seite, wenn es darum geht, Ihre Sicht auf die Straße angenehm und sicher zu machen.
             </p>
-
+            <a href="{% url 'home' %}#Kontakt">
               <button class="hover:bg-green-950 mb-3 h-[52px] rounded-md bg-[#40904d] px-7 text-base font-medium text-white transition">
-                Kontakt
+              Kontakt
               </button>
+            </a>
           </div>
         </div>
 
@@ -52,12 +53,11 @@
       </div>
     </div>
   </div>
-  <!--Templates End-->
+  <!--Home End-->
 
 
 
 
-  <!-- ====== Brands Section Start -->
   <section class="bg-gray-100 py-20">
     <div class="container mx-auto">
       <div class="flex flex-wrap items-center">
@@ -70,30 +70,30 @@
         </div>
         <div class="w-full px-4 lg:w-1/2 xl:w-7/12">
           <div class="mt-12 flex flex-wrap items-center justify-center lg:mt-0 xl:justify-end">
-            <a href="javascript:void(0)" class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+            <span class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
               <img src="{% static 'images/car.svg' %}" alt="image" class="w-full h-16 sm:h-24 ">
-            </a>
-            <a href="javascript:void(0)" class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+            </span>
+            <span class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
               <img src="{% static 'images/tractor.svg' %}" alt="image" class="w-full h-16 sm:h-24">
-            </a>
-            <a href="javascript:void(0)" class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+            </span>
+            <span class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
               <img src="{% static 'images/truck.svg' %}" alt="image" class="w-full h-16 sm:h-24">
-            </a>
-            <a href="javascript:void(0)" class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+            </span>
+            <span class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
               <img src="{% static 'images/camper.svg' %}" alt="image" class="w-full h-16 sm:h-24">
-            </a>
-            <a href="javascript:void(0)" class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
+            </span>
+            <span class="mx-4 flex min-w-[100px] max-w-[200px] items-center justify-center py-5 lg:min-w-min lg:max-w-[110px] xl:max-w-[200px]">
               <img src="{% static 'images/bus.svg' %}" alt="image" class="w-full h-16 sm:h-24">
-            </a>
+            </span>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- ====== Brands Section End -->
+
 
   <!-- ====== Services Section Start -->
-  <section class="pt-20 lg:pt-[120px]">
+  <section id="Autoglas" class="pt-20 lg:pt-[120px]">
     <div class="container mx-auto">
       <div class="flex flex-wrap">
         <div class="w-full px-4">
@@ -200,7 +200,7 @@
 
 
       <!-- Dienstleistungen -->
-      <section id="Dienstleistungen" class="bg-gray-100">
+      <section id="Hausmeisterservice" class="scroll-m-8 bg-gray-100">
         <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
           <div class="flex flex-wrap">
             <div class="w-full px-4">
@@ -276,7 +276,7 @@
 
 
   <!-- ====== About Section Start -->
-  <section class="overflow-hidden pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
+  <section id="Galerie" class="overflow-hidden pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
     <div class="container mx-auto">
       <div class="flex flex-wrap items-center justify-between">
         <div class="w-full px-4 lg:w-6/12">
@@ -288,7 +288,7 @@
         </div>
         <div class="w-full px-4 lg:w-1/2 2xl:w-5/12">
           <div class="mt-10 lg:mt-0">
-            <span class="mb-2 block text-lg font-bold text-gray-500 md:mb-4">
+            <span class="mb-2 block text-lg font-semibold text-[#40904d] md:mb-4">
               Was wir machen!
             </span>
             <h2 class="mb-11 text-3xl font-bold leading-tight text-black sm:text-4xl sm:leading-tight md:text-5xl lg:text-4xl lg:leading-tight xl:text-5xl">
@@ -456,7 +456,7 @@
   <!-- ====== Call To Action Section End -->
 
   <!-- ====== Contact Section Start -->
-  <section class="overflow-hidden py-24 bg-white">
+  <section id="Kontakt" class="overflow-hidden py-24 bg-white">
     <div class="container mx-auto">
       <div class="flex flex-wrap justify-center">
         <div class="w-full px-4 xl:w-10/12">
@@ -494,7 +494,7 @@
                   <h5 class="text-lg font-semibold text-white">
                     Telefon
                   </h5>
-                  <p class="text-base text-white/70">0160 95066848</p>
+                  <p class="text-base text-white/70">+49 160 95066848</p>
                 </div>
               </div>
             </div>
@@ -570,10 +570,10 @@
             <img class="h-full w-full object-cover brightness-75" src="{% static 'images/BlackandWhiteMap.png' %}" alt="Schwarzweiskarte" />
             <div class="z-50 absolute w-full py-2.5 top-2.5 md:top-1/4 bottom-0.5 inset-x-0 text-white text-sm text-center leading-4 lg:text-lg md:text-base">
               Inhalte von Leaflet werden aufgrund deiner aktuellen Cookie-Einstellungen nicht angezeigt. Mehr dazu erfährst du in unserer
-              <a href="./datenschutz" class="hover:bg-slate-500 hover:text-white hover:rounded-sm transition ease-linear duration-300 text-blue-600">
+              <a href="{% url 'datenschutz' %}" class="hover:bg-slate-500 hover:text-white hover:rounded-sm transition ease-linear duration-300 text-blue-600">
                 Datenschutzerklärung
               </a>. Du kannst deine Zustimmung jederzeit widerrufen. Gehe dazu einfach in deine eigenen
-              <a href="./cookies" class="hover:bg-slate-500 hover:text-white hover:rounded-sm transition ease-linear duration-300 text-blue-600">Cookie-Einstellungen</a>.
+              <a href="{% url 'cookies' %}" class="hover:bg-slate-500 hover:text-white hover:rounded-sm transition ease-linear duration-300 text-blue-600">Cookie-Einstellungen</a>.
             </div>
           </div>
         </div>
