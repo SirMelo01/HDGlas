@@ -1,7 +1,22 @@
 from django.shortcuts import render, redirect
-from yoolink.ycms.models import FAQ, Message, TextContent, fileentry, Galerie, GaleryImage
+from yoolink.ycms.models import FAQ, UserSettings, Message, Product, OpeningHours, TextContent, fileentry, Galerie, GaleryImage
 import datetime
 from django.http import HttpResponseRedirect
+
+def get_opening_hours():
+    opening_hours = {}
+    days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
+    for day in days:
+        if OpeningHours.objects.filter(day=day).exists():
+            opening_hours[f"opening_{day.lower()}"] = OpeningHours.objects.get(day=day)
+        else:
+            opening_hours[f"opening_{day.lower()}"] = None
+            
+    user_settings = UserSettings.objects.filter(user__is_staff=False)
+    if user_settings.exists():
+        user_settings = user_settings.first()
+        opening_hours["owner_data"] = user_settings
+    return opening_hours
 
 
 def load_index(request):
@@ -52,3 +67,19 @@ def kontaktform(request):
         return render(request, 'pages/kontakt.html', {'success': True})
 
     return render(request, 'pages/kontakt.html', {'success': success})
+
+
+def impressum(request):
+    context = {}
+    context.update(get_opening_hours())
+    return render(request, 'pages/impressum.html', context)
+
+def datenschutz(request):
+    context = {}
+    context.update(get_opening_hours())
+    return render(request, 'pages/datenschutz.html', context)
+
+def cookies(request):
+    context = {}
+    context.update(get_opening_hours())
+    return render(request, 'pages/cookies.html', context)

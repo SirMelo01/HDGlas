@@ -71,3 +71,6 @@ https://www.youtube.com/watch?v=DLxcyndCvO4 hier ab minute 28
 
 ssh root@157.90.121.117
 
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+docker rmi -f $(docker images -q)

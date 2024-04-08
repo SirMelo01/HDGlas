@@ -272,22 +272,64 @@
                 Öffnungszeiten
               </h4>
               <p class="mb-0.5 p-0 text-base text-gray-500">
-                <span class="mr-1">Montag 8:00 - 17:00</span>
+                <span class="mr-1">Montag:</span>
+                <span>
+                  {% if opening_mon and opening_mon.is_open %}
+                  {{opening_mon.start_time}} <span>-</span> {{opening_mon.end_time}}
+                  {% else %}
+                  Geschlossen
+                  {% endif %}
+                </span>
               </p>
               <p class="mb-0.5 p-0 text-base text-gray-500">
-                <span class="mr-1">Dienstag 8:00 - 17:00</span>
+                <span class="mr-1">Dienstag:</span>
+                <span>
+                  {% if opening_tue and opening_tue.is_open %}
+                  {{opening_tue.start_time}} <span>-</span> {{opening_tue.end_time}}
+                  {% else %}
+                  Geschlossen
+                  {% endif %}
+                </span>
               </p>
               <p class="mb-0.5 p-0 text-base text-gray-500">
-                <span class="mr-1">Mittwoch 8:00 - 17:00</span>
+                <span class="mr-1">Mittwoch:</span>
+                <span>
+                  {% if opening_wed and opening_wed.is_open %}
+                  {{opening_wed.start_time}} <span>-</span> {{opening_wed.end_time}}
+                  {% else %}
+                  Geschlossen
+                  {% endif %}
+                </span>
               </p>
               <p class="mb-0.5 p-0 text-base text-gray-500">
-                <span class="mr-1">Donnerstag 8:00 - 17:00</span>
+                <span class="mr-1">Donnerstag:</span>
+                <span>
+                  {% if opening_thu and opening_thu.is_open %}
+                  {{opening_thu.start_time}} <span>-</span> {{opening_thu.end_time}}
+                  {% else %}
+                  Geschlossen
+                  {% endif %}
+                </span>
               </p>
               <p class="mb-0.5 p-0 text-base text-gray-500">
-                <span class="mr-1">Freitag 8:00 - 17:00</span>
+                <span class="mr-1">Freitag:</span>
+                <span>
+                  {% if opening_fri and opening_fri.is_open %}
+                  {{opening_fri.start_time}} <span>-</span> {{opening_fri.end_time}}
+                  {% else %}
+                  Geschlossen
+                  {% endif %}
+                </span>
               </p>
               <p class="text-base p-0 text-gray-500">
-                <span class="mr-1">Samstag 8:00 - 13:00</span>
+                <span class="mr-1">Samstag:</span>
+                <span>
+                  {% if opening_sat and opening_sat.is_open %}
+                  {{opening_sat.start_time}} <span>-</span> {{opening_sat.end_time}}
+                  {% else %}
+                  Geschlossen
+                  {% endif %}
+                </span>
               </p>
             </div>
           </div>
