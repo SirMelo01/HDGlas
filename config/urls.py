@@ -6,7 +6,7 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
-from yoolink.views import load_index, kontaktform
+from yoolink.views import load_index, kontaktform, datenschutz, impressum, cookies
 from django.views.generic import RedirectView
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import path, include
@@ -26,10 +26,10 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
     path("", include('django.contrib.auth.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name="django.contrib.sitemaps.views.sitemap",),
-    path("impressum/", TemplateView.as_view(template_name="pages/impressum.html"), name="impressum"),
-    #path("kontakt/", view=kontaktform, name="kontakt"),
-    path("datenschutz/", TemplateView.as_view(template_name="pages/datenschutz.html"), name="datenschutz"),
-    path("cookies/", TemplateView.as_view(template_name="pages/cookies.html"), name="cookies"),
+    path("impressum/", view=impressum, name="impressum"),
+    # path("kontakt/", view=kontaktform, name="kontakt"),
+    path("datenschutz/", view=datenschutz, name="datenschutz"),
+    path("cookies/", view=cookies, name="cookies"),
     path("cms/", include("yoolink.ycms.urls", namespace="ycms")),
     #path("vorlagen/", include("yoolink.designtemplates.urls", namespace="designtemplates")),
     #path("blog/", include("yoolink.blog.urls", namespace="blog")),
