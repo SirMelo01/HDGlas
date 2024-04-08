@@ -31,6 +31,7 @@ function mapLoad() {
 }
 
 
+var csrftoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
 
 //FQA
 $(document).ready(function() {
