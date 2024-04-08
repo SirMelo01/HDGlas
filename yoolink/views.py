@@ -56,6 +56,8 @@ def load_index(request):
     if fileentry.objects.filter(place='main_cms').exists():
         context["cmsImage"] = fileentry.objects.get(place='main_cms')
 
+        
+    context.update(get_opening_hours())
     return render(request, 'pages/index.html', context=context)
 
 def kontaktform(request):
