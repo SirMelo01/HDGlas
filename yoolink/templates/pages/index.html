@@ -607,12 +607,14 @@
           </p>
         </div>
         <div class="space-y-4">
+          {% csrf_token %}
+          {% for faq in FAQ %}
 
           
           <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="border-b border-black">
             <button type="button" aria-label="Open item" title="Open item" class="flex items-center justify-between w-full p-4 focus:outline-none faq-toggle">
               <div itemprop="name" class="mb-2 text-[20px] font-semibold leading-[27px] text-black">
-                Wie vereinbare ich einen Termin für Ihre Dienstleistungen?
+                {{ faq.question }}
               </div>
               <svg viewBox="0 0 24 24" class="w-3 faq-arrow">
                 <polyline fill="black" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
@@ -620,42 +622,11 @@
             </button>
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="p-4 pt-0 hidden faq-content text-gray-600">
               <div itemprop="text" class="">
-                Sie können ganz einfach einen Termin für unsere Dienstleistungen vereinbaren, indem Sie uns telefonisch kontaktieren oder unser Online-Terminbuchungssystem nutzen. Unser Team steht Ihnen gerne zur Verfügung, um Ihren Terminwunsch zu bestätigen und alle Ihre Fragen zu beantworten.
+                {{ faq.answer }}
               </div>
             </div>
           </div>
-
-          <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="border-b border-black">
-            <button type="button" aria-label="Open item" title="Open item" class="flex items-center justify-between w-full p-4 focus:outline-none faq-toggle">
-              <div itemprop="name" class="mb-2 text-[20px] font-semibold leading-[27px] text-black">
-                Bieten Sie Notfall-Dienstleistungen an?
-              </div>
-              <svg viewBox="0 0 24 24" class="w-3 faq-arrow">
-                <polyline fill="black" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
-              </svg>
-            </button>
-            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="p-4 pt-0 hidden faq-content text-gray-600">
-              <div itemprop="text" class="">
-                Ja, wir bieten Notfall-Dienstleistungen an, um Ihnen in dringenden Situationen zu helfen, wie beispielsweise bei Glasschäden oder anderen unvorhergesehenen Ereignissen. Kontaktieren Sie uns umgehend, damit wir Ihnen schnellstmöglich assistieren können.
-              </div>
-            </div>
-          </div>
-
-          <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="border-b border-black">
-            <button type="button" aria-label="Open item" title="Open item" class="flex items-center justify-between w-full p-4 focus:outline-none faq-toggle">
-              <div itemprop="name" class="mb-2 text-[20px] font-semibold leading-[27px] text-black">
-                Wie lange dauert es, bis meine Reparatur oder Installation abgeschlossen ist?
-              </div>
-              <svg viewBox="0 0 24 24" class="w-3 faq-arrow">
-                <polyline fill="black" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
-              </svg>
-            </button>
-            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="p-4 pt-0 hidden faq-content text-gray-600">
-              <div itemprop="text" class="">
-                Die Dauer hängt von der Art der Dienstleistung ab. Für kleinere Reparaturen oder Installationen kann der Prozess in wenigen Stunden abgeschlossen sein, während umfangreichere Projekte möglicherweise mehr Zeit in Anspruch nehmen. Unser Team wird Sie jedoch über den Zeitrahmen informieren, sobald wir eine genaue Einschätzung Ihrer Anforderungen vorgenommen haben.
-              </div>
-            </div>
-          </div>
+          {% endfor %}
 
         </div>
       </div>
