@@ -53,7 +53,7 @@ $(document).ready(function() {
     var formData = {
         name: $('#firstName').val() + " " + $('#lastName').val(),
         email: $('#email').val(),
-        title: $('#message').val(),
+        title: $('#subject').val(),
         number: $('#number').val(),
         message: $('#message').val(),
         csrfmiddlewaretoken: csrftoken,
