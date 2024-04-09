@@ -7,61 +7,173 @@
 
 
 <div class="container mx-auto mt-8">
-    <div class="flex justify-between">
-        <h1 class="text-2xl "><a href="{% url 'cms:sites' %}" class="text-blue-500">Seiten</a> / <a
-                href="{% url 'cms:site_hauptseite' %}" class="text-blue-500">Hauptseite</a> / <span>Team</span></h1>
-        <div>
-            {% csrf_token %}
-            <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-6 hover:cursor-pointer"
-                id="saveTextData" name="main_team">
-                Speichern
-            </a>
-        </div>
+  <div class="flex justify-between">
+    <h1 class="text-2xl "><a href="{% url 'cms:sites' %}" class="text-blue-500">Seiten</a> / <a
+        href="{% url 'cms:site_hauptseite' %}" class="text-blue-500">Hauptseite</a> / <span>Team</span></h1>
+    <div>
+      {% csrf_token %}
+      <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-6 hover:cursor-pointer"
+        id="saveTextData" name="main_team">
+        Speichern
+      </a>
     </div>
+  </div>
 
 
-    <div class="mt-8 w-full">
-        <div class="flex items-center justify-center  md:px-8 w-full">
-            <div class="max-w-4xl mb-10 md:mx-auto sm:text-center md:mb-12">
-                <input
-                    class="bg-gray-200 mb-4 appearance-none border-2 border-gray-200 rounded-lg w-72 text-center inline-block py-2 px-4 text-xs font-semibold tracking-wider text-teal-900 uppercase leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    id="header" type="text" value="{% if textContent and textContent.header %}{{textContent.header}}{% else %}UNSER Team{% endif %}">
-                <textarea rows="7"
-                    class="bg-gray-200 rounded-lg appearance-none border-2 border-gray-200 w-full py-2 px-4 text-base text-gray-800 md:text-lg leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    id="description" type="text">{% if textContent and textContent.title %}{{textContent.description}}{% else %}Wir sind drei Studenten im IT-Bereich und bringen alle eine Faszination und Leidenschaft für Web-Entwicklung mit. Zusammen sind wir das Webdesign Team YooLink aus Deggendorf. Wir freuen uns gemeinsam mit Ihnen eine Lösung zu erstellen.
-                    {% endif %}
-                </textarea>
-            </div>
+  <section class="overflow-hidden bg-gray-100 pb-20 pt-20 lg:pb-[120px] lg:pt-[120px]">
+    <div class="container mx-auto">
+      <div class="flex flex-wrap">
+        <div class="w-full px-4">
+          <div class="mx-auto max-w-[510px] text-center">
+            <input id="header"
+              class="bg-gray-200 appearance-none border-2 inline-block py-2 px-2 border-gray-200 mb-4 rounded-lg text-lg font-semibold text-[#40904d]"
+              value="{% if textContent %}{{textContent.header}}{% else %}Unser Team{% endif %}" />
+            <input id="title"
+              class="bg-gray-200 max-w-full appearance-none border-2 inline-block py-2 px-2 border-gray-200 rounded-lg mb-5 text-3xl font-bold leading-[1.2] text-black sm:text-4xl md:text-[40px]"
+              value="{% if textContent %}{{textContent.title}}{% else %}Über uns{% endif %}" />
+            <textarea id="description"
+              class="mb-4 h-44 w-full appearance-none rounded-lg border-2 border-gray-200 bg-gray-200 px-4 py-2 text-base leading-tight text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none md:text-lg">{% if textContent %}{{textContent.description}}{% else %}Unser Team von Autoglaser-Experten, geleitet von Geschäftsführer Andreas Ledaev, bietet erstklassigen Service für Ihre Fahrzeugverglasung und handwerklichen Dienste.{% endif %}
+            </textarea>
+          </div>
         </div>
-        <div class="grid gap-10 mx-auto sm:grid-cols-2 lg:max-w-screen-md">
-            <div>
-              <div class="relative pb-56 mb-4 rounded shadow lg:pb-64">
-                <img class="absolute object-cover w-full h-full rounded-xl" src="{% static 'images/Sebastian.jpeg' %}" alt="Sebastian Rauch"/>
-              </div>
-              <div class="flex flex-col sm:text-center">
-                <p class="text-lg font-bold text-blue-900">Sebastian Rauch</p>
-                <p class="mb-5 text-xs text-gray-800">Product Manager</p>
-              </div>
-            </div>
-              <div class="relative pb-56 mb-4 rounded shadow lg:pb-64">
-                <img class="absolute object-cover w-full h-full rounded-xl" src="{% static 'images/Lennert.jpg' %}" alt="Lennert Meißner"/>
-              </div>
-              <div class="flex flex-col sm:text-center">
-                <p class="text-lg font-bold text-blue-900">Lennert Meißner</p>
-                <p class="mb-5 text-xs text-gray-800">Development</p>
+      </div>
+      <div class="relative flex justify-center">
+        <div class="relative w-full pb-16 md:w-11/12 lg:w-10/12 xl:w-8/12 xl:pb-0">
+          <div
+            class="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[368px] sm:max-w-[508px] md:max-w-[630px] lg:max-w-[738px] 2xl:max-w-[910px]"
+            x-ref="carousel">
+            <div
+              class="mx-auto h-full min-w-[300px] xs:min-w-[368px] sm:min-w-[508px] sm:p-6 md:min-w-[630px] lg:min-w-[738px] 2xl:min-w-[910px]">
+              <div class="w-full md:flex">
+                <div
+                  class="relative mb-12 w-full max-w-[310px] md:mb-0 md:mr-12 md:max-w-[250px] lg:mr-14 lg:max-w-[280px] xl:max-w-[310px] 2xl:mr-16">
+                  <img key="main_team"
+                    src="{% if teamImage %}{{teamImage.file.url}}{% else %}{% static 'images/Andreas2.jpg' %}{% endif %}"
+                    alt="{% if teamImage %}{{teamImage.file.title}}{% else %}Teambild{% endif %}"
+                    class="w-full content-image" imgId="{% if teamImage %}{{teamImage.id}}{% endif %}">
+                  <span class="absolute -left-6 -top-6 z-[-1] hidden sm:block">
+                    <svg width="77" height="77" viewBox="0 0 77 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="1.66343" cy="74.5221" r="1.66343" transform="rotate(-90 1.66343 74.5221)"
+                        fill="#3758F9"></circle>
+                      <circle cx="1.66343" cy="30.9401" r="1.66343" transform="rotate(-90 1.66343 30.9401)"
+                        fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="74.5221" r="1.66343" transform="rotate(-90 16.3016 74.5221)"
+                        fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="30.9401" r="1.66343" transform="rotate(-90 16.3016 30.9401)"
+                        fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="74.5221" r="1.66343" transform="rotate(-90 30.9398 74.5221)"
+                        fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="30.9401" r="1.66343" transform="rotate(-90 30.9398 30.9401)"
+                        fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="74.5221" r="1.66343" transform="rotate(-90 45.578 74.5221)"
+                        fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="30.9401" r="1.66343" transform="rotate(-90 45.578 30.9401)"
+                        fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="74.5216" r="1.66343" transform="rotate(-90 60.2162 74.5216)"
+                        fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="74.5216" r="1.66343" transform="rotate(-90 74.6634 74.5216)"
+                        fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="30.9398" r="1.66343" transform="rotate(-90 60.2162 30.9398)"
+                        fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="30.9398" r="1.66343" transform="rotate(-90 74.6634 30.9398)"
+                        fill="#3758F9"></circle>
+                      <circle cx="1.66343" cy="59.8839" r="1.66343" transform="rotate(-90 1.66343 59.8839)"
+                        fill="#3758F9"></circle>
+                      <circle cx="1.66343" cy="16.3017" r="1.66343" transform="rotate(-90 1.66343 16.3017)"
+                        fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="59.8839" r="1.66343" transform="rotate(-90 16.3016 59.8839)"
+                        fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="16.3017" r="1.66343" transform="rotate(-90 16.3016 16.3017)"
+                        fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="59.8839" r="1.66343" transform="rotate(-90 30.9398 59.8839)"
+                        fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="16.3017" r="1.66343" transform="rotate(-90 30.9398 16.3017)"
+                        fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="59.8839" r="1.66343" transform="rotate(-90 45.578 59.8839)"
+                        fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="16.3017" r="1.66343" transform="rotate(-90 45.578 16.3017)"
+                        fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="59.8839" r="1.66343" transform="rotate(-90 60.2162 59.8839)"
+                        fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="59.8839" r="1.66343" transform="rotate(-90 74.6634 59.8839)"
+                        fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="16.3017" r="1.66343" transform="rotate(-90 60.2162 16.3017)"
+                        fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="16.3017" r="1.66343" transform="rotate(-90 74.6634 16.3017)"
+                        fill="#3758F9"></circle>
+                      <circle cx="1.66343" cy="45.2455" r="1.66343" transform="rotate(-90 1.66343 45.2455)"
+                        fill="#3758F9"></circle>
+                      <circle cx="1.66343" cy="1.66347" r="1.66343" transform="rotate(-90 1.66343 1.66347)"
+                        fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="45.2455" r="1.66343" transform="rotate(-90 16.3016 45.2455)"
+                        fill="#3758F9"></circle>
+                      <circle cx="16.3016" cy="1.66347" r="1.66343" transform="rotate(-90 16.3016 1.66347)"
+                        fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="45.2455" r="1.66343" transform="rotate(-90 30.9398 45.2455)"
+                        fill="#3758F9"></circle>
+                      <circle cx="30.9398" cy="1.66347" r="1.66343" transform="rotate(-90 30.9398 1.66347)"
+                        fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="45.2455" r="1.66343" transform="rotate(-90 45.578 45.2455)"
+                        fill="#3758F9"></circle>
+                      <circle cx="45.578" cy="1.66347" r="1.66343" transform="rotate(-90 45.578 1.66347)"
+                        fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="45.2457" r="1.66343" transform="rotate(-90 60.2162 45.2457)"
+                        fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="45.2457" r="1.66343" transform="rotate(-90 74.6634 45.2457)"
+                        fill="#3758F9"></circle>
+                      <circle cx="60.2162" cy="1.66371" r="1.66343" transform="rotate(-90 60.2162 1.66371)"
+                        fill="#3758F9"></circle>
+                      <circle cx="74.6634" cy="1.66371" r="1.66343" transform="rotate(-90 74.6634 1.66371)"
+                        fill="#3758F9"></circle>
+                    </svg>
+                  </span>
+                  <span
+                    class="edit-img absolute left-0 top-0 z-40 inline-block rounded-full bg-orange-500 px-2 py-1 text-sm font-semibold text-white hover:cursor-pointer"><i
+                      class="bi bi-pencil-square"></i></span>
+
+                  <span class="absolute -bottom-6 -right-6 z-[-1]">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M3 32C3 15.9837 15.9837 3 32 3C48.0163 2.99999 61 15.9837 61 32C61 48.0163 48.0163 61 32 61C15.9837 61 3 48.0163 3 32Z"
+                        stroke="#13C296" stroke-width="6"></path>
+                    </svg>
+                  </span>
+                </div>
+                <div class="w-full">
+                  <div>
+                    <div class="mb-8 mt-5">
+                      <img src="{% static 'images/Logooriginal.png' %}" alt="hd-glas" class="">
+                    </div>
+                    <p class="mb-11 text-base font-normal italic leading-[1.81] text-gray-500 sm:text-[22px]">
+                      Unser Team, sorgt mit Fachkenntnissen und Leidenschaft dafür, dass Ihre Anliegen stets optimal
+                      betreut werden.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
+        </div>
+      </div>
     </div>
+  </section>
+</div>
+
+{% block javascriptend %}
+{% compress js inline %}
+<script defer src="{% static 'js/cms.js' %}"></script>
+<script src="{% static 'js/cms/content/save-text.js' %}"></script>
+<script defer src="{% static 'js/cms/content/siteManager.js' %}"></script>
+<!-- Needed for Galery -->
+<script defer>
+  $(document).ready(function () {
+    loadImages(false);
+  })
+</script>
+{% endcompress js %}
+{% endblock javascriptend %}
 
 
-    {% block javascriptend %}
-    {% compress js inline %}
-    <script defer src="{% static 'js/cms.js' %}"></script>
-    <script src="{% static 'js/cms/content/save-text.js' %}"></script>
-    {% endcompress js %}
-    {% endblock javascriptend %}
 
-
-
-    {% endblock content %}
+{% endblock content %}

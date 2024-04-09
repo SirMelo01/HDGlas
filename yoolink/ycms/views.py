@@ -598,8 +598,12 @@ def site_view_main_hero(request):
     data = {}
     if TextContent.objects.filter(name="main_hero").exists():
         data["textContent"] = TextContent.objects.get(name='main_hero')
-    if Galerie.objects.filter(place='main_hero').exists():
-        data["heroImages"] = Galerie.objects.get(place='main_hero').images.all()
+    if fileentry.objects.filter(place='main_hero_1').exists():
+        data["heroImage1"] = fileentry.objects.get(place='main_hero_1')
+    if fileentry.objects.filter(place='main_hero_2').exists():
+        data["heroImage2"] = fileentry.objects.get(place='main_hero_2')
+    if fileentry.objects.filter(place='main_hero_3').exists():
+        data["heroImage3"] = fileentry.objects.get(place='main_hero_3')
         
     return render(request, "pages/cms/content/sites/mainsite/HeroContent.html", data)
 
@@ -646,6 +650,9 @@ def site_view_main_team(request):
     data = {}
     if TextContent.objects.filter(name="main_team").exists():
         data["textContent"] = TextContent.objects.get(name='main_team')
+
+    if fileentry.objects.filter(place='main_team').exists():
+        data["teamImage"] = fileentry.objects.get(place='main_team')
 
     return render(request, "pages/cms/content/sites/mainsite/TeamContent.html", data)
 

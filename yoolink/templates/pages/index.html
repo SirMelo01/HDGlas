@@ -20,14 +20,14 @@
         <div class="w-full px-4 lg:w-1/2">
           <div class="mb-12 lg:mb-0">
             <h2 class="mb-5 text-3xl font-bold leading-[1.208] text-black lg:text-[38px] xl:text-[40px]">
-              Autoglas-Service <br>  <span class="text-[#40904d]">HD-GLAS</span>
+              {% if heroText %}{{heroText.title}}{% else %}Autoglas-Service{% endif %} <br>  <span class="text-[#40904d]">{% if heroText %}{{heroText.header}}{% else %}HD-GLAS{% endif %}</span>
             </h2>
             <p class="mb-8 max-w-[485px] text-base md:text-lg text-gray-500">
-              Die Spezialisten von HD-Glas in Plattling beheben schnell und unbürokratisch Ihren Steinschlagschaden oder erneuern die Scheiben. Dazu steht Ihnen das Team von HD-Glas gerne mit Rat und Tat zur Seite, wenn es darum geht, Ihre Sicht auf die Straße angenehm und sicher zu machen.
+              {% if heroText %}{{heroText.description}}{% else %}Die Spezialisten von HD-Glas in Plattling beheben schnell und unbürokratisch Ihren Steinschlagschaden oder erneuern die Scheiben. Dazu steht Ihnen das Team von HD-Glas gerne mit Rat und Tat zur Seite, wenn es darum geht, Ihre Sicht auf die Straße angenehm und sicher zu machen.{% endif %}
             </p>
             <a href="{% url 'home' %}#Kontakt">
               <button class="hover:bg-green-950 mb-3 h-[52px] rounded-md bg-[#40904d] px-7 text-base font-medium text-white transition">
-              Kontakt
+                {% if heroText %}{{heroText.buttonText}}{% else %}Kontakt{% endif %}
               </button>
             </a>
           </div>
@@ -37,15 +37,18 @@
           <div class="flex flex-wrap">
             <div class="w-1/2 px-2 sm:px-4">
               <div class="mb-4 h-[256px] sm:mb-8 sm:h-[442px] lg:h-[332px] xl:h-[442px]">
-                <img src="{% static 'images/Firmengebaeude.jpg' %}" alt="hero image" class="h-full w-full object-cover object-center">
+                <img src="{% if heroImage1 %}{{heroImage1.file.url}}{% else %}{% static 'images/Firmengebaeude.jpg' %}{% endif %}" 
+                alt="{% if heroImage1 %}{{heroImage1.file.title}}{% else %}hero image{% endif %}" class="h-full w-full object-cover object-center">
               </div>
             </div>
             <div class="w-1/2 px-2 sm:px-4">
               <div class="mb-4 h-[120px] sm:mb-8 sm:h-[205px] lg:h-[150px] xl:h-[205px]">
-                <img src="{% static 'images/Steinschlag.png' %}" alt="hero image" class="h-full w-full object-cover object-center">
+                <img src="{% if heroImage2 %}{{heroImage2.file.url}}{% else %}{% static 'images/Steinschlag.png' %}{% endif %}" 
+                alt="{% if heroImage2 %}{{heroImage2.file.title}}{% else %}hero image{% endif %}" class="h-full w-full object-cover object-center">
               </div>
               <div class="mb-4 h-[120px] sm:mb-8 sm:h-[205px] lg:h-[150px] xl:h-[205px]">
-                <img src="{% static 'images/Montage.jpg' %}" alt="hero image" class="h-full w-full object-cover object-center">
+                <img src="{% if heroImage3 %}{{heroImage3.file.url}}{% else %}{% static 'images/Montage.jpg' %}{% endif %}" 
+                alt="{% if heroImage3 %}{{heroImage3.file.title}}{% else %}hero image{% endif %}" class="h-full w-full object-cover object-center">
               </div>
             </div>
           </div>
@@ -336,13 +339,13 @@
         <div class="w-full px-4">
           <div class="mx-auto max-w-[510px] text-center">
             <span class="mb-2 block text-lg font-semibold text-[#40904d]">
-              Unser Team
+              {% if teamText %}{{teamText.header}}{% else %}Unser Team{% endif %}
             </span>
             <h2 class="mb-3 text-3xl font-bold leading-[1.2] text-black sm:text-4xl md:text-[40px]">
-              Über uns
+              {% if teamText %}{{teamText.title}}{% else %}Über uns{% endif %}
             </h2>
             <p class="text-base md:text-lg text-gray-500">
-              Unser Team von Autoglaser-Experten, geleitet von Geschäftsführer Andreas Ledaev, bietet erstklassigen Service für Ihre Fahrzeugverglasung und handwerklichen Dienste.  
+              {% if teamText %}{{teamText.description}}{% else %}Unser Team von Autoglaser-Experten, geleitet von Geschäftsführer Andreas Ledaev, bietet erstklassigen Service für Ihre Fahrzeugverglasung und handwerklichen Dienste.{% endif %}  
             </p>
           </div>
         </div>
@@ -353,7 +356,8 @@
             <div class="mx-auto h-full min-w-[300px] xs:min-w-[368px] sm:min-w-[508px] sm:p-6 md:min-w-[630px] lg:min-w-[738px] 2xl:min-w-[910px]">
               <div class="w-full md:flex">
                 <div class="relative mb-12 w-full max-w-[310px] md:mb-0 md:mr-12 md:max-w-[250px] lg:mr-14 lg:max-w-[280px] xl:max-w-[310px] 2xl:mr-16">
-                  <img src="{% static 'images/Andreas2.jpg' %}" alt="image" class="w-full">
+                  <img src="{% if teamImage %}{{teamImage.file.url}}{% else %}{% static 'images/Andreas2.jpg' %}{% endif %}" 
+                  alt="{% if teamImage %}{{teamImage.file.title}}{% else %}Teambild{% endif %}" class="w-full">
                   <span class="absolute -left-6 -top-6 z-[-1] hidden sm:block">
                     <svg width="77" height="77" viewBox="0 0 77 77" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="1.66343" cy="74.5221" r="1.66343" transform="rotate(-90 1.66343 74.5221)" fill="#3758F9"></circle>

@@ -57,19 +57,17 @@ def load_index(request):
         context["dienst3Text"] = TextContent.objects.get(name='main_dienst_3')
 
 
-    # Galery
-    if Galerie.objects.filter(place='main_hero').exists():
-        context["heroImages"] = Galerie.objects.get(place='main_hero').images.all()
-        
-    if Galerie.objects.filter(place='main_responsive_desktop').exists():
-        context['responsiveDesktopImages'] = Galerie.objects.get(place='main_responsive_desktop').images.all()
-        
-    if Galerie.objects.filter(place='main_responsive_handy').exists():
-        context['responsiveHandyImages'] = Galerie.objects.get(place='main_responsive_handy').images.all()
-
     # Images
-    if fileentry.objects.filter(place='main_cms').exists():
-        context["cmsImage"] = fileentry.objects.get(place='main_cms')
+    if fileentry.objects.filter(place='main_hero_1').exists():
+        context["heroImage1"] = fileentry.objects.get(place='main_hero_1')
+    if fileentry.objects.filter(place='main_hero_2').exists():
+        context["heroImage2"] = fileentry.objects.get(place='main_hero_2')
+    if fileentry.objects.filter(place='main_hero_3').exists():
+        context["heroImage3"] = fileentry.objects.get(place='main_hero_3')
+
+    if fileentry.objects.filter(place='main_team').exists():
+        context["teamImage"] = fileentry.objects.get(place='main_team')
+
 
     context["user_settings"] = UserSettings.objects.filter(user__is_staff=False).first() 
     context.update(get_opening_hours())
