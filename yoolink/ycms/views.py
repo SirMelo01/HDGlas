@@ -1653,7 +1653,7 @@ def email_send(request):
         message_company += f", {number}"
     message_company += ") hat eine neue Anfrage gesendet:\n\n"
     message_company += f"Betreff: { title }\n\n"
-    message_company += f"Nachricht: { message }\n\n"
+    message_company += f"Nachricht: { message.message }\n\n"
     message_company += f"Bitte schauen Sie im Dashboard nach, um weitere Details zu erhalten: {dashboard_url}cms/messages/{message.id}\n"
     message_company += f"Bitte nicht auf diese Email antworten!\n\n"
     message_company += "Vielen Dank!\n\nMit freundlichen Grüßen,\nIhr YooLink"
