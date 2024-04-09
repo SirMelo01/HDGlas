@@ -206,13 +206,13 @@
             <div class="w-full px-4">
               <div class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
                 <span class="mb-2 block text-lg font-semibold text-[#40904d]">
-                  Leistungen
+                  {% if dienstText %}{{dienstText.header}}{% else %}Leistungen{% endif %}
                 </span>
                 <h2 class="mb-3 text-3xl font-bold leading-[1.2] text-black sm:text-4xl md:text-[40px]">
-                  Hausmeisterservice
+                  {% if dienstText %}{{dienstText.title}}{% else %}Hausmeisterservice{% endif %}
                 </h2>
                 <p class="text-base md:text-lg text-gray-500">
-                  Entdecken Sie unsere vielfältigen handwerklichen Dienstleistungen.
+                  {% if dienstText %}{{dienstText.buttonText}}{% else %}Entdecken Sie unsere vielfältigen handwerklichen Dienstleistungen.{% endif %}
                 </p>
               </div>
             </div>
@@ -470,7 +470,7 @@
                 </div>
                 <div>
                   <h5 class="text-lg font-semibold text-white">E-Mail</h5>
-                  <p class="text-base text-white/70">andreas@hd-glas.de</p>
+                  <p class="text-base text-white/70">{% if owner_data and owner_data.email %}{{owner_data.email}}{% else %}andreas@hd-glas.de{% endif %}</p>
                 </div>
               </div>
             </div>
@@ -494,7 +494,7 @@
                   <h5 class="text-lg font-semibold text-white">
                     Telefon
                   </h5>
-                  <p class="text-base text-white/70">+49 160 95066848</p>
+                  <p class="text-base text-white/70">{% if owner_data and owner_data.tel_number %}{{owner_data.tel_number}}{% else %}+49 160 95066848{% endif %}</p>
                 </div>
               </div>
             </div>
@@ -511,7 +511,8 @@
                     Adresse
                   </h5>
                   <p class="text-base text-white/70">
-                    Deggendorfer Str. 36, <br> 94447 Plattling
+                    {% if owner_data and owner_data.address %}{{owner_data.address}}{% else %}Deggendorfer Str. 36,
+                    94447 Plattling{% endif %}
                   </p>
                 </div>
               </div>

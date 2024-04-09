@@ -364,7 +364,7 @@ class TextContent(models.Model):
     header = models.CharField(max_length=50, default="")
     title = models.CharField(max_length=70, default="")
     description = models.TextField(default="")
-    buttonText = models.CharField(max_length=60, default="")
+    buttonText = models.CharField(max_length=120, default="")
 
 
 class UserSettings(models.Model):

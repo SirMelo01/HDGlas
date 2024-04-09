@@ -42,6 +42,21 @@ def load_index(request):
     if TextContent.objects.filter(name="main_team").exists():
         context["teamText"] = TextContent.objects.get(name='main_team')
 
+
+    # HDDienstleistungen        
+    if TextContent.objects.filter(name="main_hdleistungen").exists():
+        context["dienstText"] = TextContent.objects.get(name='main_hdleistungen')
+
+    if TextContent.objects.filter(name="main_dienst_1").exists():
+        context["dienst1Text"] = TextContent.objects.get(name='main_dienst_1')
+        
+    if TextContent.objects.filter(name="main_dienst_2").exists():
+        context["dienst2Text"] = TextContent.objects.get(name='main_dienst_2')
+        
+    if TextContent.objects.filter(name="main_dienst_3").exists():
+        context["dienst3Text"] = TextContent.objects.get(name='main_dienst_3')
+
+
     # Galery
     if Galerie.objects.filter(place='main_hero').exists():
         context["heroImages"] = Galerie.objects.get(place='main_hero').images.all()
@@ -56,7 +71,7 @@ def load_index(request):
     if fileentry.objects.filter(place='main_cms').exists():
         context["cmsImage"] = fileentry.objects.get(place='main_cms')
 
-        
+    context["user_settings"] = UserSettings.objects.filter(user__is_staff=False).first() 
     context.update(get_opening_hours())
     return render(request, 'pages/index.html', context=context)
 

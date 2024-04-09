@@ -618,13 +618,21 @@ def site_view_main_responsive(request):
     return render(request, "pages/cms/content/sites/mainsite/ResponsiveContent.html", data)
 
 @login_required(login_url='login')
-def site_view_main_cms(request):
+def site_view_main_hdleistungen(request):
     data = {}
-    if TextContent.objects.filter(name="main_cms").exists():
-        data["textContent"] = TextContent.objects.get(name='main_cms')
-    if fileentry.objects.filter(place='main_cms').exists():
-        data["cmsImage"] = fileentry.objects.get(place='main_cms')
-    return render(request, "pages/cms/content/sites/mainsite/CmsContent.html", data)
+    if TextContent.objects.filter(name="main_hdleistungen").exists():
+        data["textContent"] = TextContent.objects.get(name='main_hdleistungen')
+
+    if TextContent.objects.filter(name="main_dienst_1").exists():
+        data["dienst1Text"] = TextContent.objects.get(name='main_dienst_1')
+        
+    if TextContent.objects.filter(name="main_dienst_2").exists():
+        data["dienst2Text"] = TextContent.objects.get(name='main_dienst_2')
+        
+    if TextContent.objects.filter(name="main_dienst_3").exists():
+        data["dienst3Text"] = TextContent.objects.get(name='main_dienst_3')
+    
+    return render(request, "pages/cms/content/sites/mainsite/HDLeistungen.html", data)
 
 @login_required(login_url='login')
 def site_view_main_price(request):
