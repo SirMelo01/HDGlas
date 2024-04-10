@@ -277,7 +277,7 @@
       </section>
 
 
-
+      
   <!-- ====== About Section Start -->
   <section id="Galerie" class="overflow-hidden pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
     <div class="container mx-auto">
@@ -285,7 +285,37 @@
         <div class="w-full px-4 lg:w-6/12">
           <div class="relative mb-12 lg:mb-0">
             <div class="mx-auto max-w-[430px]">
-              <img src="{% static 'images/placeholder.png' %}" alt="about image" class="w-full">
+              <div class="h-50 relative">
+                <div id="slider" class="container xs:h-129 sm:h-130 md:h-131 lg:h-132 xl:h-133 mx-auto relative">
+                  <img src="{% static 'images/Andreas2.jpg' %}" alt="about image" class="w-full h-full object-scale-down">
+                  <img src="{% static 'images/BlackandWhiteMap.png' %}" alt="about image" class="hidden w-full h-full object-scale-down">
+                  <img src="{% static 'images/Firmengebaeude.jpg' %}" alt="about image" class="hidden w-full h-full object-scale-down">
+                  <!--{% for image in responsiveDesktopImages %}
+                        {% if forloop.first %}
+                          <img src="{{image.upload.url}}" class="h-full w-full object-scale-down" title="{{image.title}}" alt="{{image.title}}"/>
+                        {% else %}
+                          <img src="{{image.upload.url}}" class="h-full w-full object-scale-down hidden" title="{{image.title}}" alt="{{image.title}}"/>
+                        {% endif %}
+                  {% endfor %}-->
+                </div>
+                <div class="absolute top-1/2 -translate-y-1/2 w-full  px-5">
+                  <div class="my-auto flex w-full justify-between ">
+                    <button onclick="prev()" class="rounded-full bg-white bg-opacity-80 p-3 shadow-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                      </svg>
+                    </button>
+                    <button onclick="next()" class="rounded-full bg-white bg-opacity-80 p-3 shadow-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
             </div>
           </div>
         </div>
