@@ -18,7 +18,7 @@ from django.db import transaction
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
-from rest_framework.permissions import IsAdminUser
+from rest_framework.permissions import IsAuthenticated
 from django.core.mail import send_mail
 from .serializers import OrderSerializer, OrderItemSerializer
 from yoolink.users.models import User
@@ -1083,7 +1083,7 @@ def order_view(request):
     return render(request, "pages/cms/orders/overview.html", context)
 
 @api_view(['PATCH'])
-@permission_classes([IsAdminUser])
+@permission_classes([IsAuthenticated])
 def update_order_status_admin(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     new_status = request.POST.get('status')
@@ -1124,7 +1124,7 @@ def update_order_status_admin(request, order_id):
 
 # views.py
 @api_view(['DELETE'])
-@permission_classes([IsAdminUser])
+@permission_classes([IsAuthenticated])
 def delete_review(request, review_id):
     try:
         review = Review.objects.get(pk=review_id)
@@ -1135,7 +1135,7 @@ def delete_review(request, review_id):
 
 # views.py
 @api_view(['DELETE'])
-@permission_classes([IsAdminUser])
+@permission_classes([IsAuthenticated])
 def delete_order(request, order_id):
     try:
         order = Order.objects.get(pk=order_id)
@@ -1147,7 +1147,7 @@ def delete_order(request, order_id):
 # views.py
 
 @api_view(['GET'])
-@permission_classes([IsAdminUser])
+@permission_classes([IsAuthenticated])
 def get_order_by_id(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     
@@ -1160,7 +1160,7 @@ from django.db.models import Q
 from datetime import timezone, timedelta
 
 @api_view(['GET'])
-@permission_classes([IsAdminUser])
+@permission_classes([IsAuthenticated])
 def get_orders(request):
     status_filter = request.GET.get('status')
     buyer_email_filter = request.GET.get('buyer_email')
@@ -1729,15 +1729,17 @@ from django.db.models import Q
 def opening_hours_view(request):
     # Retrieve the UserSettings for the currently logged-in user or any specific user
 
+    user = UserSettings.objects.filter(is_staff=False).first()
+
     for day_abbr, _ in OpeningHours.DAY_CHOICES:
         # Überprüfen, ob bereits Öffnungszeiten für diesen Tag existieren
-        obj, created = OpeningHours.objects.get_or_create(user=request.user, day=day_abbr)
+        obj, created = OpeningHours.objects.get_or_create(user=user, day=day_abbr)
         # Wenn Objekt gerade erstellt wurde, können Sie es initialisieren, wenn nötig
         if created:
             # obj.some_field = some_value
             obj.save()
 
-    opening_hours = OpeningHours.objects.filter(user=request.user)
+    opening_hours = OpeningHours.objects.filter(user=user)
 
     context = {
         'opening_hours': opening_hours
@@ -1752,7 +1754,7 @@ def opening_hours_view(request):
 def opening_hours_update(request):
     opening_hours_data = request.POST.get('opening_hours')
     opening_hours = json.loads(opening_hours_data)
-
+    user = UserSettings.objects.filter(is_staff=False).first()
     errors = []
     for item in opening_hours:
         day = item['day']
@@ -1764,7 +1766,7 @@ def opening_hours_update(request):
             errors.append(f"Ungültiges Format für Öffnungszeiten am {day}")
             continue
 
-        opening_hour = OpeningHours.objects.get(user=request.user, day=day)
+        opening_hour = OpeningHours.objects.get(user=user, day=day)
         opening_hour.is_open = is_open
         if start_time:
             opening_hour.start_time = start_time
