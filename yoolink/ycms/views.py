@@ -1730,8 +1730,12 @@ def opening_hours_view(request):
     # Retrieve the UserSettings for the currently logged-in user or any specific user
 
     for day_abbr, _ in OpeningHours.DAY_CHOICES:
-        if not OpeningHours.objects.filter(Q(user=request.user) & Q(day=day_abbr)).exists():
-            OpeningHours.objects.create(user=request.user, day=day_abbr)
+        # Überprüfen, ob bereits Öffnungszeiten für diesen Tag existieren
+        obj, created = OpeningHours.objects.get_or_create(user=request.user, day=day_abbr)
+        # Wenn Objekt gerade erstellt wurde, können Sie es initialisieren, wenn nötig
+        if created:
+            # obj.some_field = some_value
+            obj.save()
 
     opening_hours = OpeningHours.objects.filter(user=request.user)
 
