@@ -1729,7 +1729,7 @@ from django.db.models import Q
 def opening_hours_view(request):
     # Retrieve the UserSettings for the currently logged-in user or any specific user
 
-    user = UserSettings.objects.filter(is_staff=False).first()
+    user = User.objects.filter(is_staff=False).first()
 
     for day_abbr, _ in OpeningHours.DAY_CHOICES:
         # Überprüfen, ob bereits Öffnungszeiten für diesen Tag existieren
@@ -1754,7 +1754,7 @@ def opening_hours_view(request):
 def opening_hours_update(request):
     opening_hours_data = request.POST.get('opening_hours')
     opening_hours = json.loads(opening_hours_data)
-    user = UserSettings.objects.filter(is_staff=False).first()
+    user = User.objects.filter(is_staff=False).first()
     errors = []
     for item in opening_hours:
         day = item['day']
