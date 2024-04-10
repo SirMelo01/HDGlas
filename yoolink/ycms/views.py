@@ -22,6 +22,7 @@ from rest_framework.permissions import IsAdminUser
 from django.core.mail import send_mail
 from .serializers import OrderSerializer, OrderItemSerializer
 from yoolink.users.models import User
+from rest_framework.permissions import IsAuthenticated
 from .utils import send_payment_confirmation, send_ready_for_pickup_confirmation, send_shipping_confirmation
 
 @login_required(login_url='login')
@@ -1722,12 +1723,14 @@ def user_settings_update(request):
 Opening Hours
 """
 
+from django.db.models import Q
+
 @login_required(login_url='login')
 def opening_hours_view(request):
     # Retrieve the UserSettings for the currently logged-in user or any specific user
 
     for day_abbr, _ in OpeningHours.DAY_CHOICES:
-        if not OpeningHours.objects.filter(user=request.user, day=day_abbr):
+        if not OpeningHours.objects.filter(Q(user=request.user) & Q(day=day_abbr)).exists():
             OpeningHours.objects.create(user=request.user, day=day_abbr)
 
     opening_hours = OpeningHours.objects.filter(user=request.user)
@@ -1741,7 +1744,7 @@ def opening_hours_view(request):
 
 
 @api_view(['POST'])
-@permission_classes([IsAdminUser])
+@permission_classes([IsAuthenticated])
 def opening_hours_update(request):
     opening_hours_data = request.POST.get('opening_hours')
     opening_hours = json.loads(opening_hours_data)
