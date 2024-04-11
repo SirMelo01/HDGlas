@@ -46,7 +46,7 @@ urlpatterns = [
     path('seiten/hauptseite/Hero/', views.site_view_main_hero, name='site_hauptseite_hero'),
     path('seiten/hauptseite/Reponsive/', views.site_view_main_responsive, name='site_hauptseite_responsive'),
     path('seiten/hauptseite/HDLeistungen/', views.site_view_main_hdleistungen, name='site_hauptseite_hdleistungen'),
-    path('seiten/hauptseite/Preis/', views.site_view_main_price, name='site_hauptseite_price'),
+    path('seiten/hauptseite/Galerie/', views.site_view_main_galerie, name='site_hauptseite_galerie'),
     path('seiten/hauptseite/Team/', views.site_view_main_team, name='site_hauptseite_team'),
     # Products
     path('products/', views.product_view, name='products'),

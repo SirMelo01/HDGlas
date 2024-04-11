@@ -4503,11 +4503,6 @@ video {
     padding-right: 10rem;
   }
 
-  .md\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
   .md\:pb-2 {
     padding-bottom: 0.5rem;
   }
@@ -4771,10 +4766,6 @@ video {
 
   .lg\:max-w-2xl {
     max-width: 42rem;
-  }
-
-  .lg\:max-w-4xl {
-    max-width: 56rem;
   }
 
   .lg\:max-w-\[110px\] {

@@ -1,0 +1,122 @@
+{% extends "cmsbase.html" %}
+{% load compress static %}
+{% block title %} {{block.super}} | CMS - Seiteninhalt {% endblock %}
+
+{% block content %}
+
+{% include "pages/cms/components/GalerySelectModal.html" %}
+
+<div class="container mx-auto mt-8">
+    <div class="flex justify-between">
+        <h1 class="text-2xl "><a href="{% url 'cms:sites' %}" class="text-blue-500">Seiten</a> / <a
+                href="{% url 'cms:site_hauptseite' %}" class="text-blue-500">Hauptseite</a> / <span>Galerie</span></h1>
+        <div>
+            {% csrf_token %}
+            <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-6 hover:cursor-pointer"
+                id="saveTextData" name="main_team">
+                Speichern
+            </a>
+        </div>
+    </div>
+
+
+    <!-- ====== About Section Start -->
+  <section id="Galerie" class="overflow-hidden pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
+    <div class="container mx-auto">
+      <div class="flex flex-wrap items-center justify-between">
+        <div class="w-full px-4 lg:w-6/12">
+          <div class="relative mb-12 lg:mb-0">
+            <div class="mx-auto max-w-[430px]">
+              <div class="h-50 relative">
+                <div id="slider" class="container xs:h-129 sm:h-130 md:h-131 lg:h-132 xl:h-133 mx-auto relative" key="main_Galery">
+                    <span class="absolute top-0 left-0 inline-block px-2 py-1 text-sm font-semibold text-white bg-orange-500 rounded-full z-40 hover:cursor-pointer edit-galery"><i class="bi bi-pencil-square"></i></span>
+
+                    {% if mainGalery %}
+                        {% for img in mainGalery %}
+                            {% if forloop.first %}
+                                <img src="{{img.upload.url}}" class="h-full w-full object-scale-down" title="{{img.title}}" alt="{{img.title}}"/>
+                            {% else %}
+                                <img src="{{img.upload.url}}" class="h-full w-full object-scale-down hidden" title="{{img.title}}" alt="{{img.title}}"/>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <img src="https://placehold.co/600x400" alt="Template Design" class="h-full w-full object-scale-down"/>
+                    {% endif %}
+                </div>
+                <div class="absolute top-1/2 -translate-y-1/2 w-full  px-5">
+                  <div class="my-auto flex w-full justify-between ">
+                    <button onclick="prev()" class="rounded-full bg-white bg-opacity-80 p-3 shadow-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                      </svg>
+                    </button>
+                    <button onclick="next()" class="rounded-full bg-white bg-opacity-80 p-3 shadow-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="w-full px-4 lg:w-1/2 2xl:w-5/12">
+          <div class="mt-10 lg:mt-0">
+            <span class="mb-2 block text-lg font-semibold text-[#40904d] md:mb-4">
+              Was wir machen!
+            </span>
+            <h2 class="mb-11 text-3xl font-bold leading-tight text-black sm:text-4xl sm:leading-tight md:text-5xl lg:text-4xl lg:leading-tight xl:text-5xl">
+              Entdecken Sie unsere Galerie: HD-Glas in Aktion!
+            </h2>
+
+            <div class="mb-8 flex">
+              <span class="w-full max-w-[45px] pr-4 text-2xl font-bold text-[#40904d]">
+                01
+              </span>
+              <div class="w-full">
+                <h3 class="mb-4 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl">
+                  Autoglas
+                </h3>
+                <p class="mb-9 text-base text-gray-500">
+                  Mit unserer langjährigen Erfahrung und Fachkompetenz im Bereich Autoglasreparatur und -austausch seit 2009 garantieren wir Ihnen eine erstklassige Lösung für Ihre Fahrzeugscheiben.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex">
+              <span class="w-full max-w-[45px] pr-4 text-2xl font-bold text-[#40904d]">
+                02
+              </span>
+              <div class="w-full">
+                <h3 class="mb-4 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl">
+                  Hausmeisterservice
+                </h3>
+                <p class="mb-9 text-base text-gray-500">
+                  Seit unserem Einstieg in den Hausmeisterservice im Jahr 2021 bieten wir professionelle und zuverlässige Dienstleistungen für die Instandhaltung und Pflege Ihrer Immobilie an.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ====== About Section End -->
+
+
+
+    {% block javascriptend %}
+    {% compress js inline %}
+    <script defer src="{% static 'js/cms.js' %}"></script>
+    <script src="{% static 'js/cms/content/save-text.js' %}"></script>
+    <script defer src="{% static 'js/cms/content/siteManager.js' %}"></script>
+    <script defer src="{% static 'js/home.js' %}"></script>
+    {% endcompress js %}
+    {% endblock javascriptend %}
+
+
+    {% endblock content %}

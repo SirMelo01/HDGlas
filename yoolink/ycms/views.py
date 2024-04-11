@@ -640,11 +640,13 @@ def site_view_main_hdleistungen(request):
     return render(request, "pages/cms/content/sites/mainsite/HDLeistungen.html", data)
 
 @login_required(login_url='login')
-def site_view_main_price(request):
+def site_view_main_galerie(request):
     data = {}
-    if TextContent.objects.filter(name="main_price").exists():
-        data["textContent"] = TextContent.objects.get(name='main_price')
-    return render(request, "pages/cms/content/sites/mainsite/PriceContent.html", data)
+    if TextContent.objects.filter(name="main_team").exists():
+        data["textContent"] = TextContent.objects.get(name='main_team')
+    if Galerie.objects.filter(place='main_Galery').exists():
+        data["mainGalery"] = Galerie.objects.get(place='main_Galery').images.all()
+    return render(request, "pages/cms/content/sites/mainsite/GalerieContent.html", data)
 
 @login_required(login_url='login')
 def site_view_main_team(request):

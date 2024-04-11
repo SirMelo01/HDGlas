@@ -287,16 +287,16 @@
             <div class="mx-auto max-w-[430px]">
               <div class="h-50 relative">
                 <div id="slider" class="container xs:h-129 sm:h-130 md:h-131 lg:h-132 xl:h-133 mx-auto relative">
-                  <img src="{% static 'images/Andreas2.jpg' %}" alt="about image" class="w-full h-full object-scale-down">
+                  <!--<img src="{% static 'images/Andreas2.jpg' %}" alt="about image" class="w-full h-full object-scale-down">
                   <img src="{% static 'images/BlackandWhiteMap.png' %}" alt="about image" class="hidden w-full h-full object-scale-down">
-                  <img src="{% static 'images/Firmengebaeude.jpg' %}" alt="about image" class="hidden w-full h-full object-scale-down">
-                  <!--{% for image in responsiveDesktopImages %}
+                  <img src="{% static 'images/Firmengebaeude.jpg' %}" alt="about image" class="hidden w-full h-full object-scale-down">-->
+                  {% for img in mainGalery %}
                         {% if forloop.first %}
-                          <img src="{{image.upload.url}}" class="h-full w-full object-scale-down" title="{{image.title}}" alt="{{image.title}}"/>
+                          <img src="{{img.upload.url}}" class="h-full w-full object-scale-down" title="{{img.title}}" alt="{{img.title}}"/>
                         {% else %}
-                          <img src="{{image.upload.url}}" class="h-full w-full object-scale-down hidden" title="{{image.title}}" alt="{{image.title}}"/>
+                          <img src="{{img.upload.url}}" class="h-full w-full object-scale-down hidden" title="{{img.title}}" alt="{{img.title}}"/>
                         {% endif %}
-                  {% endfor %}-->
+                  {% endfor %}
                 </div>
                 <div class="absolute top-1/2 -translate-y-1/2 w-full  px-5">
                   <div class="my-auto flex w-full justify-between ">
