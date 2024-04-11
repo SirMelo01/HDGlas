@@ -2,6 +2,14 @@
 {% load compress static %}
 {% block title %} {{block.super}} | CMS - Seiteninhalt {% endblock %}
 
+<!-- Needed for Galery (Slick) -->
+{% block javascript %}
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/cms/slick/slick-carousel.css' %}" />
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/cms/slick/slick-theme.css' %}" />
+{% endblock %}
+
 {% block content %}
 
 {% include "pages/cms/components/GalerySelectModal.html" %}
@@ -28,37 +36,29 @@
           <div class="relative mb-12 lg:mb-0">
             <div class="mx-auto max-w-[430px]">
               <div class="h-50 relative">
-                <div id="slider" class="container xs:h-129 sm:h-130 md:h-131 lg:h-132 xl:h-133 mx-auto relative" key="main_Galery">
+                <div id="slider" class="galery-container container xs:h-129 sm:h-130 md:h-131 lg:h-132 xl:h-133 mx-auto relative" key="main_Galery">
                     <span class="absolute top-0 left-0 inline-block px-2 py-1 text-sm font-semibold text-white bg-orange-500 rounded-full z-40 hover:cursor-pointer edit-galery"><i class="bi bi-pencil-square"></i></span>
-
+                    <div class="carousel">
                     {% if mainGalery %}
                         {% for img in mainGalery %}
-                            {% if forloop.first %}
-                                <img src="{{img.upload.url}}" class="h-full w-full object-scale-down" title="{{img.title}}" alt="{{img.title}}"/>
-                            {% else %}
-                                <img src="{{img.upload.url}}" class="h-full w-full object-scale-down hidden" title="{{img.title}}" alt="{{img.title}}"/>
-                            {% endif %}
+                        <div>
+                            <img src="{{img.upload.url}}" alt="{{img.title}}" class="w-full rounded-xl h-96" />
+                        </div>
                         {% endfor %}
                     {% else %}
-                        <img src="https://placehold.co/600x400" alt="Template Design" class="h-full w-full object-scale-down"/>
+                    <div>
+                        <img src="https://placehold.co/600x400" 
+                            alt="Template Design" class="w-full rounded-xl h-96"/>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x400" 
+                            alt="Template Design" class="w-full rounded-xl h-96"/>
+                    </div>
                     {% endif %}
+
+                    </div>
                 </div>
-                <div class="absolute top-1/2 -translate-y-1/2 w-full  px-5">
-                  <div class="my-auto flex w-full justify-between ">
-                    <button onclick="prev()" class="rounded-full bg-white bg-opacity-80 p-3 shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="h-6 w-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                      </svg>
-                    </button>
-                    <button onclick="next()" class="rounded-full bg-white bg-opacity-80 p-3 shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="h-6 w-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+
               </div>
               
             </div>
@@ -114,7 +114,24 @@
     <script defer src="{% static 'js/cms.js' %}"></script>
     <script src="{% static 'js/cms/content/save-text.js' %}"></script>
     <script defer src="{% static 'js/cms/content/siteManager.js' %}"></script>
-    <script defer src="{% static 'js/home.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/cms/slick/slick.min.js' %}"></script>
+    <script>
+        $('.carousel').slick({
+        dots: true,  // Display navigation dots
+        arrows: true,  // Display navigation arrows
+        infinite: true,  // Enable infinite looping
+        slidesToShow: 1,  // Number of slides to show at once
+        slidesToScroll: 1,  // Number of slides to scroll at a time
+        autoplay: true,
+        autoplaySpeed: 3000,
+        // Add any other configuration options as needed
+    });
+    </script>
+    <script defer>
+        $(document).ready(function () {
+            loadGalerien(false);
+        })
+    </script>
     {% endcompress js %}
     {% endblock javascriptend %}
 
