@@ -37,9 +37,6 @@ def load_index(request):
         context["cmsText"] = TextContent.objects.get(name='main_cms')
 
     if TextContent.objects.filter(name="main_team").exists():
-        context["priceText"] = TextContent.objects.get(name='main_team')
-
-    if TextContent.objects.filter(name="main_team").exists():
         context["teamText"] = TextContent.objects.get(name='main_team')
 
 
@@ -58,8 +55,8 @@ def load_index(request):
 
 
     # Galerie
-    if TextContent.objects.filter(name="main_team").exists():
-        context["galerieText"] = TextContent.objects.get(name='main_team')
+    if TextContent.objects.filter(name="main_galerie").exists():
+        context["galerieText"] = TextContent.objects.get(name='main_galerie')
  
     if Galerie.objects.filter(place='main_Galery').exists():
         context["mainGalery"] = Galerie.objects.get(place='main_Galery').images.all()
