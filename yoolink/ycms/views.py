@@ -642,8 +642,8 @@ def site_view_main_hdleistungen(request):
 @login_required(login_url='login')
 def site_view_main_galerie(request):
     data = {}
-    if TextContent.objects.filter(name="main_team").exists():
-        data["textContent"] = TextContent.objects.get(name='main_team')
+    if TextContent.objects.filter(name="main_galerie").exists():
+        data["textContent"] = TextContent.objects.get(name='main_galerie')
     if TextContent.objects.filter(name="main_Galery_1").exists():
         data["galerie1Text"] = TextContent.objects.get(name='main_Galery_1')
     if TextContent.objects.filter(name="main_Galery_2").exists():
