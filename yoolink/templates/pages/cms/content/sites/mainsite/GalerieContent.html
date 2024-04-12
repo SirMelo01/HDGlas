@@ -67,23 +67,20 @@
         <div class="w-full px-4 lg:w-1/2 2xl:w-5/12">
           <div class="mt-10 lg:mt-0">
             <span class="mb-2 block text-lg font-semibold text-[#40904d] md:mb-4">
-              Was wir machen!
+              <input id="header" class="mb-4 inline-block rounded-lg px-3 py-2 w-60 text-sm font-semibold tracking-wider leading-none appearance-none border-2 border-gray-200 bg-gray-200 text-center focus:bg-white focus:border-blue-500 focus:outline-none" value="{% if textContent and textContent.header %}{{textContent.header}}{% else %}Was wir machen!{%endif%}"></input>
             </span>
             <h2 class="mb-11 text-3xl font-bold leading-tight text-black sm:text-4xl sm:leading-tight md:text-5xl lg:text-4xl lg:leading-tight xl:text-5xl">
-              Entdecken Sie unsere Galerie: HD-Glas in Aktion!
+              <input id="title" class="mb-6 max-w-lg font-sans text-3xl font-bold leading-none tracking-tight sm:text-4xl md:mx-auto inline-block w-full appearance-none rounded-lg border-2 border-gray-200 bg-gray-200 px-4 py-2 text-center focus:bg-white focus:border-blue-500 focus:outline-none" value="{% if textContent and textContent.title %}{{textContent.title}}{% else %}Entdecken Sie unsere Galerie: HD-Glas in Aktion!{%endif%}"></input>
             </h2>
 
             <div class="mb-8 flex">
               <span class="w-full max-w-[45px] pr-4 text-2xl font-bold text-[#40904d]">
                 01
               </span>
-              <div class="w-full">
-                <h3 class="mb-4 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl">
-                  Autoglas
-                </h3>
-                <p class="mb-9 text-base text-gray-500">
-                  Mit unserer langjährigen Erfahrung und Fachkompetenz im Bereich Autoglasreparatur und -austausch seit 2009 garantieren wir Ihnen eine erstklassige Lösung für Ihre Fahrzeugscheiben.
-                </p>
+              <div class="text-content w-full" key="main_Galery_1">
+                <input inputType="title" class="mb-3 inline-block w-full appearance-none rounded-lg border-2 border-gray-200 bg-gray-200 px-4 py-2 text-center text-xl font-bold leading-5 tracking-tight focus:bg-white focus:border-blue-500 focus:outline-none" 
+                value="{% if galerie1Text and galerie1Text.title %}{{galerie1Text.title}}{% else %}Autoglas{% endif %}" />
+                <textarea inputType="description" class="mb-3 text-base text-gray-900 bg-gray-200 rounded-lg appearance-none border-2 border-gray-200 w-full py-2 px-4  leading-tight focus:outline-none focus:bg-white focus:border-blue-500 h-48">{% if galerie1Text and galerie1Text.description %}{{galerie1Text.description}}{% else %}Mit unserer langjährigen Erfahrung und Fachkompetenz im Bereich Autoglasreparatur und -austausch seit 2009 garantieren wir Ihnen eine erstklassige Lösung für Ihre Fahrzeugscheiben.{% endif %}</textarea>
               </div>
             </div>
 
@@ -91,13 +88,10 @@
               <span class="w-full max-w-[45px] pr-4 text-2xl font-bold text-[#40904d]">
                 02
               </span>
-              <div class="w-full">
-                <h3 class="mb-4 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl">
-                  Hausmeisterservice
-                </h3>
-                <p class="mb-9 text-base text-gray-500">
-                  Seit unserem Einstieg in den Hausmeisterservice im Jahr 2021 bieten wir professionelle und zuverlässige Dienstleistungen für die Instandhaltung und Pflege Ihrer Immobilie an.
-                </p>
+              <div class="text-content w-full" key="main_Galery_2">
+                <input inputType="title" class="mb-3 inline-block w-full appearance-none rounded-lg border-2 border-gray-200 bg-gray-200 px-4 py-2 text-center text-xl font-bold leading-5 tracking-tight focus:bg-white focus:border-blue-500 focus:outline-none" 
+                value="{% if galerie2Text and galerie2Text.title %}{{galerie2Text.title}}{% else %}Hausmeisterservice{% endif %}" />
+                <textarea inputType="description" class="mb-3 text-base text-gray-900 bg-gray-200 rounded-lg appearance-none border-2 border-gray-200 w-full py-2 px-4  leading-tight focus:outline-none focus:bg-white focus:border-blue-500 h-48">{% if galerie2Text and galerie2Text.description %}{{galerie2Text.description}}{% else %}Seit unserem Einstieg in den Hausmeisterservice im Jahr 2021 bieten wir professionelle und zuverlässige Dienstleistungen für die Instandhaltung und Pflege Ihrer Immobilie an.{% endif %}</textarea>
               </div>
             </div>
           </div>

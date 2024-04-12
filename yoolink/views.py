@@ -58,9 +58,17 @@ def load_index(request):
 
 
     # Galerie
+    if TextContent.objects.filter(name="main_team").exists():
+        context["galerieText"] = TextContent.objects.get(name='main_team')
  
     if Galerie.objects.filter(place='main_Galery').exists():
         context["mainGalery"] = Galerie.objects.get(place='main_Galery').images.all()
+
+    if TextContent.objects.filter(name="main_Galery_1").exists():
+        context["galerie1Text"] = TextContent.objects.get(name='main_Galery_1')
+        
+    if TextContent.objects.filter(name="main_Galery_2").exists():
+        context["galerie2Text"] = TextContent.objects.get(name='main_Galery_2')
 
     # Images
     if fileentry.objects.filter(place='main_hero_1').exists():

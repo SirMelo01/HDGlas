@@ -644,6 +644,10 @@ def site_view_main_galerie(request):
     data = {}
     if TextContent.objects.filter(name="main_team").exists():
         data["textContent"] = TextContent.objects.get(name='main_team')
+    if TextContent.objects.filter(name="main_Galery_1").exists():
+        data["galerie1Text"] = TextContent.objects.get(name='main_Galery_1')
+    if TextContent.objects.filter(name="main_Galery_2").exists():
+        data["galerie2Text"] = TextContent.objects.get(name='main_Galery_2')
     if Galerie.objects.filter(place='main_Galery').exists():
         data["mainGalery"] = Galerie.objects.get(place='main_Galery').images.all()
     return render(request, "pages/cms/content/sites/mainsite/GalerieContent.html", data)
