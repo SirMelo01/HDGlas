@@ -30,14 +30,31 @@ def load_index(request):
     if TextContent.objects.filter(name="main_hero").exists():
         context["heroText"] = TextContent.objects.get(name='main_hero')
 
-    if TextContent.objects.filter(name="main_responsive").exists():
-        context["responsiveText"] = TextContent.objects.get(name='main_responsive')
+
 
     if TextContent.objects.filter(name="main_cms").exists():
         context["cmsText"] = TextContent.objects.get(name='main_cms')
 
     if TextContent.objects.filter(name="main_team").exists():
         context["teamText"] = TextContent.objects.get(name='main_team')
+
+
+    # Autoglas Leistungen
+
+    if TextContent.objects.filter(name="main_agleistungen").exists():
+        context["agdienstText"] = TextContent.objects.get(name='main_agleistungen')
+
+    if TextContent.objects.filter(name="main_agdienst_1").exists():
+        context["agdienst1Text"] = TextContent.objects.get(name='main_agdienst_1')
+        
+    if TextContent.objects.filter(name="main_agdienst_2").exists():
+        context["agdienst2Text"] = TextContent.objects.get(name='main_agdienst_2')
+        
+    if TextContent.objects.filter(name="main_agdienst_3").exists():
+        context["agdienst3Text"] = TextContent.objects.get(name='main_agdienst_3')
+
+    if TextContent.objects.filter(name="main_agdienst_4").exists():
+        context["agdienst4Text"] = TextContent.objects.get(name='main_agdienst_4')
 
 
     # HDDienstleistungen        

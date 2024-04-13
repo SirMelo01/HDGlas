@@ -102,13 +102,13 @@
         <div class="w-full px-4">
           <div class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
             <span class="mb-2 block text-lg font-semibold text-[#40904d]">
-              Leistungen
+              {% if agdienstText %}{{agdienstText.header}}{% else %}Leistungen{% endif %}
             </span>
             <h2 class="mb-3 text-3xl font-bold leading-[1.2] text-black sm:text-4xl md:text-[40px]">
-              Autoglas-Service
+              {% if agdienstText %}{{agdienstText.title}}{% else %}Autoglas-Service{% endif %}
             </h2>
             <p class="text-base md:text-lg text-gray-500">
-              Erfahren Sie mehr über unsere vielfältigen Dienstleistungen, die von Autoglasreparatur und -austausch bis hin zu speziellen Montagen und Serviceoptionen reichen.
+              {% if agdienstText %}{{agdienstText.buttonText}}{% else %}Erfahren Sie mehr über unsere vielfältigen Dienstleistungen, die von Autoglasreparatur und -austausch bis hin zu speziellen Montagen und Serviceoptionen reichen.{% endif %}
             </p>
           </div>
         </div>
@@ -133,10 +133,10 @@
               </svg>
             </div>
             <h3 class="mb-5 text-2xl font-semibold text-black">
-              Autoglas Dienstleistungen
+              {% if agdienst1Text %}{{agdienst1Text.title}}{%else%}Autoglas Dienstleistungen{%endif%}
             </h3>
             <p class="text-base text-gray-500">
-              Wir bieten eine breite Palette von Autoglasdienstleistungen für PKW, Wohnmobile und LKW, einschließlich Scheibenreparatur, -austausch und Kratzerentfernung.
+              {% if agdienst1Text %}{{agdienst1Text.description}}{% else %}Wir bieten eine breite Palette von Autoglasdienstleistungen für PKW, Wohnmobile und LKW, einschließlich Scheibenreparatur, -austausch und Kratzerentfernung.{% endif %}
             </p>
           </div>
         </div>
@@ -150,10 +150,10 @@
               </svg>
             </div>
             <h3 class="mb-5 text-2xl font-semibold text-black">
-              Glas- & Schiebedach-Montage
+              {% if agdienst2Text %}{{agdienst2Text.title}}{%else%}Glas- & Schiebedach-Montage{%endif%}
             </h3>
             <p class="text-base text-gray-500">
-              Unser Fachteam führt professionelle Montage von Autoglas und Schiebedächern durch, um Ihr Fahrzeug zu optimieren und zu individualisieren.
+              {% if agdienst2Text %}{{agdienst2Text.description}}{% else %}Unser Fachteam führt professionelle Montage von Autoglas und Schiebedächern durch, um Ihr Fahrzeug zu optimieren und zu individualisieren.{% endif %}
             </p>
           </div>
         </div>
@@ -170,10 +170,10 @@
               </svg>
             </div>
             <h3 class="mb-5 text-2xl font-semibold text-black">
-              Zusatzleistungen & Sonderanfertigungen
+              {% if agdienst3Text %}{{agdienst3Text.title}}{%else%}Zusatzleistungen & Sonderanfertigungen{%endif%}
             </h3>
             <p class="text-base text-gray-500">
-              Neben Standarddienstleistungen bieten wir auch Verbundglaszuschnitte, Sonderanfertigungen und Baumaschinenverglasungen an, um Ihren speziellen Anforderungen gerecht zu werden.
+              {% if agdienst3Text %}{{agdienst3Text.description}}{% else %}Neben Standarddienstleistungen bieten wir auch Verbundglaszuschnitte, Sonderanfertigungen und Baumaschinenverglasungen an, um Ihren speziellen Anforderungen gerecht zu werden.{% endif %}
             </p>
           </div>
         </div>
@@ -189,10 +189,10 @@
               </svg>
             </div>
             <h3 class="mb-5 text-2xl font-semibold text-black">
-              Serviceangebote
+              {% if agdienst4Text %}{{agdienst4Text.title}}{%else%}Serviceangebote{%endif%}
             </h3>
             <p class="text-base text-gray-500">
-              Profitieren Sie von unserem Vor-Ort-Service, Fahrzeugabholung, speziellen Dienstleistungen für Oldtimer-Verglasung, Scheiben-Aufbereitung und Fahrerschutzscheiben, um Ihre Bedürfnisse zu erfüllen und Ihren Komfort zu maximieren.
+              {% if agdienst4Text %}{{agdienst4Text.description}}{% else %}Profitieren Sie von unserem Vor-Ort-Service, Fahrzeugabholung, speziellen Dienstleistungen für Oldtimer-Verglasung, Scheiben-Aufbereitung und Fahrerschutzscheiben, um Ihre Bedürfnisse zu erfüllen und Ihren Komfort zu maximieren.{% endif %}
             </p>
           </div>
         </div>

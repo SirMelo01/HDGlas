@@ -24,7 +24,7 @@
         <div class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
           <div class="mb-10 max-w-xl text-center md:mx-auto md:mb-12 lg:max-w-2xl">
             <div>
-              <input id="header" class="mb-4 inline-block rounded-lg px-3 py-2 w-60 text-sm font-semibold uppercase tracking-wider text-blue-500 leading-none appearance-none border-2 border-gray-200 bg-gray-200 text-center focus:bg-white focus:border-blue-500 focus:outline-none" value="{% if textContent and textContent.header %}{{textContent.header}}{% else %}Leistungen{%endif%}"></input>
+              <input id="header" class="mb-4 inline-block rounded-lg px-3 py-2 w-60 text-sm font-semibold tracking-wider text-blue-500 leading-none appearance-none border-2 border-gray-200 bg-gray-200 text-center focus:bg-white focus:border-blue-500 focus:outline-none" value="{% if textContent and textContent.header %}{{textContent.header}}{% else %}Leistungen{%endif%}"></input>
             </div>
             <input id="title" class="mb-6 max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto inline-block w-full appearance-none rounded-lg border-2 border-gray-200 bg-gray-200 px-4 py-2 text-center focus:bg-white focus:border-blue-500 focus:outline-none" value="{% if textContent and textContent.title %}{{textContent.title}}{% else %}Hausmeisterservice{%endif%}"></input>
             <input id="buttonText" class="text-gray-700 md:text-lg w-96 inline-block rounded-lg px-3 py-2  text-sm font-semibold tracking-wider leading-none appearance-none border-2 border-gray-200 bg-gray-200 text-center focus:bg-white focus:border-blue-500 focus:outline-none" value="{% if textContent and textContent.buttonText %}{{textContent.buttonText}}{% else %}Entdecken Sie unsere vielfältigen handwerklichen Dienstleistungen.{%endif%}"></input>
@@ -55,7 +55,8 @@
           </div>
         </div>
       </section>
-      
+  
+    </div>
 
 
     {% block javascriptend %}

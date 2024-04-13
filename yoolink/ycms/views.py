@@ -609,18 +609,25 @@ def site_view_main_hero(request):
     return render(request, "pages/cms/content/sites/mainsite/HeroContent.html", data)
 
 @login_required(login_url='login')
-def site_view_main_responsive(request):
+def site_view_main_agleistungen(request):
     data = {}
-    if TextContent.objects.filter(name="main_responsive").exists():
-        data["textContent"] = TextContent.objects.get(name='main_responsive')
+    if TextContent.objects.filter(name="main_agleistungen").exists():
+        data["textContent"] = TextContent.objects.get(name='main_agleistungen')
 
-    if Galerie.objects.filter(place='main_responsive_desktop').exists():
-        data['responsiveDesktopImages'] = Galerie.objects.get(place='main_responsive_desktop').images.all()
+    if TextContent.objects.filter(name="main_agdienst_1").exists():
+        data["agdienst1Text"] = TextContent.objects.get(name='main_agdienst_1')
         
-    if Galerie.objects.filter(place='main_responsive_handy').exists():
-        data['responsiveHandyImages'] = Galerie.objects.get(place='main_responsive_handy').images.all()
+    if TextContent.objects.filter(name="main_agdienst_2").exists():
+        data["agdienst2Text"] = TextContent.objects.get(name='main_agdienst_2')
+        
+    if TextContent.objects.filter(name="main_agdienst_3").exists():
+        data["agdienst3Text"] = TextContent.objects.get(name='main_agdienst_3')
+    
+    if TextContent.objects.filter(name="main_agdienst_4").exists():
+        data["agdienst4Text"] = TextContent.objects.get(name='main_agdienst_4')
 
-    return render(request, "pages/cms/content/sites/mainsite/ResponsiveContent.html", data)
+
+    return render(request, "pages/cms/content/sites/mainsite/Autoglasleistungen.html", data)
 
 @login_required(login_url='login')
 def site_view_main_hdleistungen(request):
